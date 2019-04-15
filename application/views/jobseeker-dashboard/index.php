@@ -110,7 +110,7 @@ if (isset($upload_error)) {
     <div class="col-lg-6" style="background-color:#edf5e1; border-radius:5px 0px 0px 5px; margin-bottom:20px;">
      <div class=" display-4" style="font-size:2em; padding: 5px 0px"> User Profile Details </div>
      <?php 
-     if(count($data1)){
+     if($data1 != null ){
        ?>
        <table class="table table-hover">
         <thead class="">

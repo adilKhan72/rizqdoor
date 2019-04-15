@@ -17,7 +17,7 @@
       <p class="head"class="follow" >Company</p>
       <a href="<?= base_url('users/aboutus'); ?>" >About Us</a>
       <a href="<?= base_url('users/contactus'); ?>">Contact Us</a>
-      <a href="<?= base_url('users/underconstruction'); ?>">Careers</a>
+      <a href="<?= base_url('users/careers'); ?>">Careers</a>
       <a href="<?= base_url('users/underconstruction'); ?>">Advertise With Us</a>
       <a href="<?= base_url('users/underconstruction'); ?>">Community Services</a>
     </div>

@@ -115,7 +115,7 @@ public function login()
 
 			if ($this->usersmodel->loginsubmit($email,$password)){
                 #if the query run successfully
-				$userid = $this->employermodel->loginsubmit($email,$password);
+				$jobseekeruserid = $this->employermodel->loginsubmit($email,$password);
 
                 # Creating Session.
 				$this->load->library('session');
@@ -229,6 +229,7 @@ public function Dashboard()
 	$jobseekeruserid = $_SESSION['jobseekeruser_id'];
 	$this->load->model('usersmodel');
 	$data1 = $this->usersmodel->dashboardjobseeker($jobseekeruserid);
+	
 	$this->load->view('jobseeker-dashboard/index',['data1' => $data1]);
 }
 
@@ -1012,7 +1013,10 @@ public function uploadpicture(){
 
 		$this->load->view('cookiepolicy');
 	}
+	public function careers(){
 
+		$this->load->view('careers');
+	}
 	public function privacypolicy(){
 
 		$this->load->view('privacypolicy');

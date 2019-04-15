@@ -35,7 +35,7 @@ if (isset($upload_error)) {
 } ?> 
      </div>
        <?php 
-       if(count($joblist1)){
+       if($joblist1 != null){
          ?>
          <div class="row">
           <div class="text-center  display-3 col-lg-4" style="font-size:1.2em; padding: 3px 0px;  margin-bottom: 10px; color:#53BD6D;">

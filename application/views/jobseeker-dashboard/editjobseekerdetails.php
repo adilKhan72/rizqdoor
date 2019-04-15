@@ -26,7 +26,7 @@
           <div class="col-lg" style="background-color:#edf5e1; margin:10px; padding:5px; border-radius:5px; margin-bottom:20px;">
      <div class="text-center  display-4" style="font-size:2em; padding: 5px 0px">Edit User Details </div>
      <?php 
-        if(count($joblist1)){
+        if($joblist1  != null){
      ?>
 
 <form action="<?= base_url('users/editjobseekerdetailssubmit'); ?>" id="userjobseekerupdate"   method="post" accept-charset="utf-8">

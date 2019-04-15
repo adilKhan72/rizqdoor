@@ -31,7 +31,7 @@
           <div class="col-lg" style="background-color:#edf5e1; margin:10px; padding:5px; border-radius:5px; margin-bottom:20px;">
      <div class="text-center  display-4" style="font-size:2em; padding: 5px 0px"> Company </div>
      <?php 
-        if(count($data2)){
+        if($data2 != null){
      ?>
     <table class="table table-hover">
   <thead class="text-center">
@@ -516,7 +516,7 @@
 } 
 ?>
     </div>
-    <?php if(count($data1)){ ?>
+    <?php if($data1 != null){ ?>
     <div class="col-lg" style="background-color:#edf5e1; margin:10px; padding:5px; border-radius:5px; margin-bottom:20px;">
       <div class="text-center display-4" style="font-size:2em; padding: 5px 0px">Employer</div>
       <table class="table table-hover">
