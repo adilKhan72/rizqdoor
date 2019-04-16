@@ -1,9 +1,9 @@
-<?php require("header.php");?><!--php required header-->
-<?php $page = "changecv"; require("sidebarnav.php");?><!--php required header-->
-<main  class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<?php $page = "changecv"; require("header.php");?><!--php required header-->
+<div class="container-fluid">
+<main  class="col-md-12 ml-sm-auto col-lg-12 px-4">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3  border-bottom" style="background-color:#53BD6D;padding-top: .4rem; padding-bottom: 0rem; margin-top:10px; border-radius:5px; padding: 0px 10px; color:white;">
     <h3 class="h4">
-      Profile:  <?= $joblist1->name?>
+      Profile:  <?= $data1->name?>
     </h3>
     <?php
     if($cvupdate = $this->session->flashdata('cvupdate'))
@@ -35,14 +35,14 @@ if (isset($upload_error)) {
 } ?> 
      </div>
        <?php 
-       if($joblist1 != null){
+       if($data1 != null){
          ?>
          <div class="row">
           <div class="text-center  display-3 col-lg-4" style="font-size:1.2em; padding: 3px 0px;  margin-bottom: 10px; color:#53BD6D;">
-            <?= $joblist1->resume?>
+            <?= $data1->resume?>
           </div>
           <div class="text-center  display-3 col-lg-4" style="font-size:1.2em; padding: 3px 0px;  margin-bottom: 10px;">
-            <a class="cvupdatebutton" href="<?= base_url('registered_user_cv_uploads');?>/<?= $joblist1->resume?>" target="_blank"  style=""> 
+            <a class="cvupdatebutton" href="<?= base_url('registered_user_cv_uploads');?>/<?= $data1->resume?>" target="_blank"  style=""> 
               View Resume 
             </a>
           </div>
@@ -96,6 +96,7 @@ if (isset($upload_error)) {
     </div>
   </div>
 </main>
+</div>
 </div>
 </div>
 <?php require("footer.php");?>

@@ -1,10 +1,9 @@
-<?php require("header.php");?><!--php required header-->
-
-<?php $page = "editjobseekerdetails"; require("sidebarnav.php");?><!--php required header-->
-        <main  class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<?php $page = "editjobseekerdetails"; require("header.php");?><!--php required header-->
+<div class="container-fluid">
+        <main  class="col-md-12 ml-sm-auto col-lg-12 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3  border-bottom" style="background-color:#53BD6D;padding-top: .4rem; padding-bottom: 0rem; margin-top:10px; border-radius:5px; padding: 0px 10px; color:white;">
               
-            <h3 class="h4">Profile:  <?= $joblist1->name?>
+            <h3 class="h4">Profile:  <?= $data1->name?>
 
             </h3>
           <?php
@@ -26,17 +25,17 @@
           <div class="col-lg" style="background-color:#edf5e1; margin:10px; padding:5px; border-radius:5px; margin-bottom:20px;">
      <div class="text-center  display-4" style="font-size:2em; padding: 5px 0px">Edit User Details </div>
      <?php 
-        if($joblist1  != null){
+        if($data1  != null){
      ?>
 
 <form action="<?= base_url('users/editjobseekerdetailssubmit'); ?>" id="userjobseekerupdate"   method="post" accept-charset="utf-8">
-<input type="hidden"  name="id" value="<?php echo $joblist1->id; ?>">
+<input type="hidden"  name="id" value="<?php echo $data1->id; ?>">
 <div class="form-group">
        <label for="exampleInputEmail1">Your Name</label>
            <?php 
 $data = array(
         'name'          => 'name',
-        'value'         => $joblist1->name,
+        'value'         => $data1->name,
         'required'=>'',
         'placeholder'     => 'Enter your full Name',
         'class' => 'form-control'
@@ -50,15 +49,15 @@ echo form_error('name');
     <label for="exampleInputEmail1">Your Email</label>
 
     <?php 
-$data1 = array(
+$data3 = array(
         'name'          => 'email',
-        'value'         => $joblist1->email,
+        'value'         => $data1->email,
         'type' => 'email',
   'required'=>'',
         'placeholder'     => ' Email (You@Example.com)',
         'class' => 'form-control'
 );
-echo form_input($data1);
+echo form_input($data3);
 echo form_error('email');
     ?>
 
@@ -68,13 +67,13 @@ echo form_error('email');
     <label for="exampleInputEmail1">Date of birth below</label>
 
     <?php 
-    $data1 = array(
+    $data3 = array(
         'name'          => 'dateofbirth',
-        'value'         => $joblist1->dateofbirth,
+        'value'         => $data1->dateofbirth,
         'type' => 'date',
         'class' => 'form-control'
 );
-echo form_input($data1);
+echo form_input($data3);
 echo form_error('dateofbirth');
     ?>
 
@@ -83,7 +82,7 @@ echo form_error('dateofbirth');
     <label >Gender</label>
 
     <select name="gender" class="form-control">
-        <option value="<?= $joblist1->gender; ?>" ><?= $joblist1->gender; ?></option>
+        <option value="<?= $data1->gender; ?>" ><?= $data1->gender; ?></option>
         <option value="male" <?php echo  set_select('gender', 'male'); ?> >Male</option>
         <option value="female" <?php echo  set_select('gender', 'female'); ?> >Female</option>
         <option value="transgender" <?php echo  set_select('gender', 'transgender'); ?> >Transgender</option>
@@ -94,7 +93,7 @@ echo form_error('dateofbirth');
     <label>Country</label>
 
     <select name="country" id ="country" class="form-control">
-      <option value="<?= $joblist1->country; ?>" selected="selected"><?= $joblist1->country; ?></option>
+      <option value="<?= $data1->country; ?>" selected="selected"><?= $data1->country; ?></option>
 </select>
 <?php echo form_error('country');?>
   </div>
@@ -103,7 +102,7 @@ echo form_error('dateofbirth');
 
     <?php 
     $options = array(
-$joblist1->city          => $joblist1->city
+$data1->city          => $data1->city
 );
 $statelist = ['id' => 'state', 'class' => 'form-control'];
 echo form_dropdown('city', $options, 'name',$statelist);
@@ -115,7 +114,7 @@ echo form_error('city');
     <label for="exampleInputEmail1">Nationality</label>
 
     <select id="" class="form-control" name="nationality">
-  <option value="<?= $joblist1->nationality; ?>" selected><?= $joblist1->nationality; ?></option>
+  <option value="<?= $data1->nationality; ?>" selected><?= $data1->nationality; ?></option>
 
     <option value="Afghanistan">Afghanistan</option>
     <option value="Albania">Albania</option>
@@ -364,7 +363,7 @@ echo form_error('city');
     <label for="exampleInputEmail1">Country Code</label>
 
     <select id="" class="form-control" name="countrycode">
-  <option value="<?= $joblist1->countrycode; ?>" selected=""><?= $joblist1->countrycode; ?></option>
+  <option value="<?= $data1->countrycode; ?>" selected=""><?= $data1->countrycode; ?></option>
     <option data-countryCode="DZ" value="213">Algeria (+213)</option>
     <option data-countryCode="AD" value="376">Andorra (+376)</option>
     <option data-countryCode="AO" value="244">Angola (+244)</option>
@@ -591,7 +590,7 @@ echo form_error('city');
     <?php 
  $data = array(
         'name'          => 'mobilenumber',
-        'value'         => $joblist1->mobilenumber,
+        'value'         => $data1->mobilenumber,
         'type'          => 'number',
         'required'=>'',
         'placeholder'     => 'Enyer your Mobile Number',
@@ -610,7 +609,7 @@ echo form_error('mobilenumber');
     <?php 
       $data = array(
         'name'          => 'landlinenumber',
-        'value'         => $joblist1->landlinenumber,
+        'value'         => $data1->landlinenumber,
         'type'          => 'number',
         'required'=>'',
         'placeholder'     => 'Enyer your LandLine Number',
@@ -628,7 +627,7 @@ echo form_error('landlinenumber');
     <?php 
     $data9 = array(
         'name'          => 'experience',
-        'value'         => $joblist1->experience,
+        'value'         => $data1->experience,
         'required'=>'',
         'type' => 'number',
         'placeholder'     => '(OPTIONAL) Experience in years (1, 2 or 6,..) ',
@@ -645,7 +644,7 @@ echo form_error('experience');
     <label for="exampleInputEmail1">Specify Prefered Industory</label>
 
     <select name="industory" class="form-control" placeholder="Specify company industory">
-<option value="<?= $joblist1->industory?>" selected><?= $joblist1->industory?></option>
+<option value="<?= $data1->industory?>" selected><?= $data1->industory?></option>
 <option value="Airlines/Aviation">Airlines/Aviation</option>
 <option value="Alternative Dispute Resolution">Alternative Dispute Resolution</option>
 <option value="Alternative Medicine">Alternative Medicine</option>
@@ -802,7 +801,7 @@ echo form_error('experience');
     <label for="exampleInputEmail1">Currency Type for Salary</label>
 
 <select name="currencytype" class="form-control">
-    <option value="<?= $joblist1->currencytype;?>" selected="selected"><?= $joblist1->currencytype;?></option>
+    <option value="<?= $data1->currencytype;?>" selected="selected"><?= $data1->currencytype;?></option>
     <option value="USD" >United States Dollars</option>
     <option value="EUR">Euro</option>
     <option value="GBP">United Kingdom Pounds</option>
@@ -894,7 +893,7 @@ echo form_error('experience');
     <?php 
 $data01 = array(
         'name'          => 'currentsalery',
-        'value'         => $joblist1->currentsalery,
+        'value'         => $data1->currentsalery,
         'required'=>'',
         'type' => 'number',
         'placeholder'     => 'Enter your current Salary',
@@ -911,7 +910,7 @@ echo form_error('currentsalery');
     <?php 
 $data01 = array(
         'name'          => 'desiredsalary',
-        'value'         => $joblist1->desiredsalary,
+        'value'         => $data1->desiredsalary,
         'required'=>'',
         'type' => 'number',
         'style' =>'margin-bottom:20px;',
@@ -940,5 +939,6 @@ echo form_error('desiredsalary');
 
       </div>
     </div>
+</div>
 <?php require("footer.php");?>
 <!--php required footer-->

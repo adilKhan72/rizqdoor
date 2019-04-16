@@ -273,7 +273,7 @@ public function changepassword(){
 	}
 		$this->load->model('usersmodel');
 		$joblist = $this->usersmodel->changepasswordmodel($user);
-		$this->load->view('jobseeker-dashboard/changepassword',['joblist1' => $joblist]);
+		$this->load->view('jobseeker-dashboard/changepassword',['data1' => $joblist]);
 }
 public function editjobseekerpasswordsubmit(){
 		$this->form_validation->set_rules('password','password','trim|required');
@@ -311,7 +311,7 @@ public function editjobseekerdetails(){
 	}
 		$this->load->model('usersmodel');
 		$joblist = $this->usersmodel->editjobseekerdetailsmodel($user);
-		$this->load->view('jobseeker-dashboard/editjobseekerdetails',['joblist1' => $joblist]);
+		$this->load->view('jobseeker-dashboard/editjobseekerdetails',['data1' => $joblist]);
 }
 
 public function editjobseekerdetailssubmit(){
@@ -681,7 +681,7 @@ public function changecv(){
 	}
 		$this->load->model('usersmodel');
 		$joblist = $this->usersmodel->changecv($user);
-		$this->load->view('jobseeker-dashboard/changecv',['joblist1' => $joblist]);
+		$this->load->view('jobseeker-dashboard/changecv',['data1' => $joblist]);
 }
 
 public function uploadpicture(){

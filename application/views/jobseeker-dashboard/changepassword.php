@@ -1,10 +1,11 @@
-<?php require("header.php");?><!--php required header-->
+<?php $page = "changepassword";  require("header.php");?><!--php required header-->
 
-<?php $page = "changepassword"; require("sidebarnav.php");?><!--php required header-->
-        <main  class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<div class="container-fluid">
+
+        <main  class="col-md-12 ml-sm-auto col-lg-12 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3  border-bottom" style="background-color:#53BD6D;padding-top: .4rem; padding-bottom: 0rem; margin-top:10px; border-radius:5px; padding: 0px 10px; color:white;">
               
-            <h3 class="h4">Profile:  <?= $joblist1->name?>
+            <h3 class="h4">Profile:  <?= $data1->name?>
 
             </h3>
           <?php
@@ -26,18 +27,18 @@
           <div class="col-lg" style="background-color:#edf5e1; margin:10px; padding:5px; border-radius:5px; margin-bottom:20px;">
      <div class="text-center  display-4" style="font-size:2em; padding: 5px 0px">Change User Password </div>
      <?php 
-        if($joblist1 != null){
+        if($data1 != null){
      ?>
 
 <form action="<?= base_url('users/editjobseekerpasswordsubmit'); ?>" id="userjobseekerpassupdate"   method="post" accept-charset="utf-8">
-<input type="hidden"  name="id" value="<?php echo $joblist1->id; ?>">
+<input type="hidden"  name="id" value="<?php echo $data1->id; ?>">
 <div class="form-group">
        <label for="exampleInputEmail1">Password</label>
            <?php 
 $data = array(
         'name'          => 'password',
         'type' => 'password',
-        'value'         => $joblist1->password,
+        'value'         => $data1->password,
         'required'=>'',
         'id' => 'myPasswordInput',
         'class' => 'form-control'
@@ -53,7 +54,7 @@ echo form_error('password');
     <?php 
 $data7 = array(
         'name'          => 'passwordconfirm',
-        'value'         => $joblist1->password,
+        'value'         => $data1->password,
         'type' => 'password',
         'required'=>'',
         'id' => 'myPasswordInputconfrim',
@@ -87,5 +88,6 @@ echo form_error('passwordconfirm');
 
       </div>
     </div>
+</div>
 <?php require("footer.php");?>
 <!--php required footer-->
