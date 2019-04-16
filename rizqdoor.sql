@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 14, 2019 at 07:36 PM
--- Server version: 5.6.41-84.1
--- PHP Version: 7.2.7
+-- Host: 127.0.0.1
+-- Generation Time: Apr 16, 2019 at 11:18 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `azamstco_rizqdoor`
+-- Database: `rizqdoor`
 --
 
 -- --------------------------------------------------------
@@ -77,7 +77,8 @@ INSERT INTO `appliedjobseeker` (`id`, `postjobid`, `name`, `email`, `phone`, `co
 (76, 49, 'Sajid shaheen', 'sajidshaheen777@gmail.com', '03425288300', 'Sajid shaheen cv', './user_cv_uploads/sajidshaheengmailcom.docx', NULL),
 (77, 82, 'Sajid shaheen', 'sajidshaheen777@gmail.com', '03425288300', 'Sajidshaheen cv', './user_cv_uploads/sajidshaheengmailcom.docx', NULL),
 (78, 79, 'Shah nawaz', 'shan.wazir@yahoo.com', '03018070491', 'Hello ,\r\nMy name Is Shah Nawaz I can work As Front based So I want to Start Working Under you People AS Internee', './user_cv_uploads/shanwaziryahoocom.pdf', NULL),
-(79, 58, 'Muhammad Raza Hassan', 'majoka953@hotmail.com', '03335252338', 'Dear Sir,\r\n\r\nI am offering my services as a Sofware Engineer.\r\n\r\nRegards,\r\n\r\nMuhammad Raza Hassan Majoka', './user_cv_uploads/majokahotmailcom.docx', NULL);
+(79, 58, 'Muhammad Raza Hassan', 'majoka953@hotmail.com', '03335252338', 'Dear Sir,\r\n\r\nI am offering my services as a Sofware Engineer.\r\n\r\nRegards,\r\n\r\nMuhammad Raza Hassan Majoka', './user_cv_uploads/majokahotmailcom.docx', NULL),
+(80, 57, 'sfad', 'adf@gmail.com', '12341', 'qewr', './user_cv_uploads/adfgmailcom.pdf', NULL);
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `employerid`, `companybranchname`, `compinfo`, `howmanyemployees`, `countrycode`, `phone`, `companyfield`, `address`, `date_creation`) VALUES
-(4, 8, 'Azam Systems and Technologies Pvt Limited', 'Established in 2014, Azam Systems & Technologies (Pvt.) Limited is a leading software company providing affordable, reliable and user-friendly software solutions. Our approach is customer-centric and user experience is number one for us. We go to extraordinary lengths to satisfy, delight and nourish our customers.', '8', '92', '234523452352', 'IT', 'Suite No. 05, 3rd Floor, Omer Plaza, 34/35, Commercial Area, Chaklala Scheme-III, Rawalpindi-46200 Pakistan', NULL),
+(4, 8, 'Azam Systems and Technologies Pvt Limited', 'Established in 2014, Azam Systems &amp; Technologies (Pvt.) Limited is a leading software company providing affordable, reliable and user-friendly software solutions. Our approach is customer-centric and user experience is number one for us. We go to extraordinary lengths to satisfy, delight and nourish our customers.', '8', '92', '234523452352', 'Capital Markets', 'Suite No. 05, 3rd Floor, Omer Plaza, 34/35, Commercial Area, Chaklala Scheme-III, Rawalpindi-46200 Pakistan', NULL),
 (5, 9, 'Rawalpindi', 'It company', '5', '92', '2345234523', 'IT', 'Chandni Chowk C-block Satellite Town  Rawalpindi.', NULL),
 (6, 10, 'Islamabad', 'Established in 2014.Its  is a leading software company providing affordable, reliable and user-friendly software solutions. Our approach is customer-centric and user experience is number one for us. We go to extraordinary lengths to satisfy, delight and nourish our customers.', '20', '92', '25423212245', 'Software', 'Chandni Chowk C-block Satellite Town  Rawalpindi.', NULL),
 (7, 11, 'Beijing', 'Established in 1999, Nesis Holding PrivateLimited is a leading software company providing affordable, reliable and user-friendly software solutions. Our approach is customer-centric and user experience is number one for us. We go to extraordinary lengths to satisfy, delight and nourish our customers.', '100', '92', '2345234525413', 'IT', 'Address: 75 Chongwenmennei, Dongcheng District, Beijing 100005', NULL),
@@ -219,7 +220,7 @@ CREATE TABLE `employer` (
 --
 
 INSERT INTO `employer` (`id`, `companyname`, `city`, `country`, `email`, `password`, `login_session`, `date_creation`, `date_updated_last`) VALUES
-(8, 'Azam Systems and Technologies', 'Rawalpindi', 'Pakistan', 'adilkhanengineer72@gmail.com', 'pakistan', 0, NULL, NULL),
+(8, 'Azam Systems and Technologies', 'Delvine', 'Albania', 'adilkhanengineer72@gmail.com', 'pakistan', 0, NULL, NULL),
 (9, 'leo solution', 'Konar', 'Afghanistan', 'yousaf@gmail.com', 'pakistan', 0, NULL, NULL),
 (10, 'Binary Solutionz   Private Limited', 'islamabad', 'Pakistan', 'binary11@gmail.com', 'Pakistan', 0, NULL, NULL),
 (11, 'Nesis Holding  Private Limited', 'Beijing', 'China', 'azamsystem2016@gmail.com', 'Pakistan', 0, NULL, NULL),
@@ -377,7 +378,7 @@ CREATE TABLE `post-job` (
 --
 
 INSERT INTO `post-job` (`id`, `employerid`, `jobtitle`, `email`, `discription`, `skills`, `noposition`, `jobfield`, `city`, `country`, `exp`, `currencytype`, `salary`, `dayofduaration`, `gender`, `posteddate`, `status`, `jobcityid`, `jobfieldid`, `qualification`, `date_updated_last`) VALUES
-(47, 8, 'Junior Product Manager Software Developer', 'adilkhanengineer72@gmail.com', 'we make safe, simple. We help first responders in public safety and public service, the federal government, and industrial organizations keep communities and our country safe by providing the most reliable radios and P25 communication solutions. We are a qualified and intensely committed team whose number one goal is to be an agile partner our customers can trust, in every situation.', 'campaigning,marketing', 1, 'Architects &amp; Construction', 'Delhi', 'India', 1, 'BRR', 90, '', 'both', 'Wednesday 2 January 2019', 1, 10, 14, 0x42616368656c6f72, NULL),
+(47, 8, 'Junior Product Manager Software Developer', 'adilkhanengineer72@gmail.com', 'we make safe, simple. We help first responders in public safety and public service, the federal government, and industrial organizations keep communities and our country safe by providing the most reliable radios and P25 communication solutions. We are a qualified and intensely committed team whose number one goal is to be an agile partner our customers can trust, in every situation.', 'campaigning,marketing', 1, 'Architects &amp; Construction', 'Constantine', 'Algeria', 1, 'BRR', 90, '', '', 'Wednesday 2 January 2019', 1, 10, 14, 0x42616368656c6f72, NULL),
 (48, 8, 'Accountant', 'adilkhanengineer72@gmail.com', 'Tradesy is a peer-to-peer marketplace for buying and selling luxury fashion, enabling savvy customers to unlock the value in their closet to access affordable luxury. Our mission is to make fashion resale as simple, safe and stylish as retail- at scale. We have millions of passionate members, a product that people love, and an office with an ocean view in sunny Santa Monica, California.Upon <strong>completion </strong> of  with technology that simply works. Our full stack teams build and ma', 'accounting', 1, 'Accounts, Finance &amp; Financial Services', 'Washington', 'USA', 2, '', 20, '', 'both', 'Wednesday 2 January 2019', 1, 11, 15, 0x42616368656c6f72, NULL),
 (49, 8, 'NETWORK ADMINISTRATOR', 'adilkhanengineer72@gmail.com', 'The City of Hinesville is accepting applications for a Network Administrator. This position oversees data security and maintains production level servers, patches and updates and participates in the support and maintenance of all components of the network according to established specifications. The position also provides direct support to the Information Technology Director.', 'networking', 1, 'Computer Networking', 'Dubayy (Dubai)', 'United Arab Emirates', 2, 'DZD', 30, '0', 'both', 'Wednesday 2 January 2019', 1, 12, 16, 0x42616368656c6f72, NULL),
 (52, 10, 'sales and marketing', 'rizq.door@gmail.com', '1) Out door marketing !\r\n2) Bachelors Must !\r\n3) Good communication Skills', 'Marketing', 2, 'Sales &amp; Business Development', 'Queensland', 'Australia', 1, 'BRR', 10000, '', 'both', 'Wednesday 9 January 2019', 1, 15, 19, 0x42616368656c6f72, NULL),
@@ -465,7 +466,7 @@ CREATE TABLE `userjobseeker` (
 INSERT INTO `userjobseeker` (`id`, `profilepic`, `email`, `name`, `dateofbirth`, `gender`, `country`, `city`, `nationality`, `landlinenumber`, `countrycode`, `mobilenumber`, `experience`, `industory`, `currencytype`, `currentsalery`, `desiredsalary`, `resume`, `password`, `login_session`, `date_creation`, `date_updated_last`) VALUES
 (1, NULL, 'adil@gmail.com', 'Adil Khan', '2019-02-06', 'transgender', 'Anguilla', 'Anguilla', 'Pakistan', '23141', '1246', '3443444141', '15', 'Chemicals', 'CLP', '12', '12', 'infomalenydanceacademycom.pdf', '12121212', 0, '2019-03-12 00:00:00', ''),
 (2, NULL, 'info@asdfg.com', 'Adil Khan', '2019-02-06', 'transgender', 'Azerbaijan', 'Cabrayil Rayonu', 'Pakistan', '3444141', '376', '3443444141', '15', 'Broadcast Media', 'GBP', '12', '12', 'infoasdfgcom.pdf', '12121212', 0, '2019-03-13 00:00:00', ''),
-(3, 'adilkhanengineergmailcom.jpg', 'adilkhanengineer72@gmail.com', 'Adil Khan', '2019-02-14', 'male', 'Pakistan', 'Islamabad', 'Pakistan', '3444141', '92', '3443444141', '12', 'Architecture & Planning', 'PKR', '22', '22', 'adilkhanengineergmailcom.docx', '13131313', 0, '2019-03-12 00:00:00', ''),
+(3, 'adilkhanengineergmailcom.jpg', 'adilkhanengineer72@gmail.com', 'Adil Khan', '2019-02-14', 'male', 'Pakistan', 'Islamabad', 'Pakistan', '3444141', '92', '3443444141', '12', 'Architecture & Planning', 'PKR', '22', '22', 'adilkhanengineergmailcom.pdf', '13131313', 0, '2019-03-12 00:00:00', ''),
 (4, NULL, 'ceo@azam-st.com', 'contact', '2019-02-02', 'male', 'Algeria', 'Ain Defla', 'Pakistan', '8552883', '244', '29', '5', 'Alternative Medicine', 'GBP', '5', '7', 'ceoazamstcom.pdf', '12121212', NULL, '2019-03-12 00:00:00', ''),
 (5, NULL, 'capritech@hotmail.com', 'qase', '2019-02-28', 'male', 'Albania', 'Kurbin', 'bangladesh', '3333', '501', '3018552886', '1', 'Civil Engineering', 'CYP', '222', '333', 'capritechhotmailcom.pdf', '12345678', NULL, '2019-03-12 00:00:00', ''),
 (6, NULL, 'adf@gmail.com', 'adilkhan', '2019-01-07', 'male', 'Albania', 'Bulqize', 'Algeria', '4', '244', '8', '16', 'Apparel & Fashion', 'DZD', '-4', '-5', 'adfgmailcom.doc', '12121212', NULL, '2019-03-12 00:00:00', ''),
@@ -583,7 +584,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `appliedjobseeker`
 --
 ALTER TABLE `appliedjobseeker`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `blog`
