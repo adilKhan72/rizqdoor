@@ -1,6 +1,5 @@
-<?php require("header.php");?><!--php required header-->
-<?php $page = "candidatelisting"; require("sidebarnav.php");?><!--php required header-->
-<main  class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<?php $page = "candidatelisting"; require("header1.php");?><!--php required header-->
+<main  class="col-md-12 ml-sm-auto col-lg-12 px-4">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
      <?php 
 if($deletres = $this->session->flashdata('candidatedeleted')){
@@ -105,5 +104,5 @@ if( count($joblist) ):
 </div>
 </div>
 
-<?php require("footer.php");?>
+<?php require("footer1.php");?>
 <!--php required footer-->

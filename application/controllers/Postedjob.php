@@ -10,10 +10,12 @@ class Postedjob extends CI_Controller
 			$this->session->set_flashdata('loginforjobposting', ' Please Login First for Job Posting');
 			return redirect('employer/login');
 		}
-
+		$this->load->model('employermodel');
+		$empid = $_SESSION['user_id'];
+		$data1 = $this->employermodel->dashboardemp($empid);
 		$this->load->model('postedjobmodel');
 		$joblist = $this->postedjobmodel->listingpostedjobs();
-		$this->load->view('employer-dashboard/posted-jobs',['joblist1' => $joblist]);
+		$this->load->view('employer-dashboard/posted-jobs',['joblist1' => $joblist,'data1'=>$data1]);
 	}
 
 
@@ -38,8 +40,10 @@ class Postedjob extends CI_Controller
 		$this->load->model('postedjobmodel');
 		$joblist = $this->postedjobmodel->candidateappliedjob($appcandidate);
 		$joblist2 = $this->postedjobmodel->jobofappcan($appcandidate);
-
-         $this->load->view('employer-dashboard/posted-jobs-applied-candidates',['joblist' => $joblist,'joblist2' => $joblist2]);
+		$this->load->model('employermodel');
+		$empid = $_SESSION['user_id'];
+		$data1 = $this->employermodel->dashboardemp($empid);
+         $this->load->view('employer-dashboard/posted-jobs-applied-candidates',['joblist' => $joblist,'joblist2' => $joblist2,'data1'=>$data1]);
 	}
 	public function editjob($editjobid)
 	{
@@ -49,10 +53,12 @@ class Postedjob extends CI_Controller
 			$this->session->set_flashdata('loginforjobposting', ' Please Login First for Job Posting');
 			return redirect('employer/login');
 		}
-
+		$this->load->model('employermodel');
+		$empid = $_SESSION['user_id'];
+		$data1 = $this->employermodel->dashboardemp($empid);
 		$this->load->model('postedjobmodel');
 		$joblist = $this->postedjobmodel->editjob($editjobid);
-		$this->load->view('employer-dashboard/editjob',['joblist1' => $joblist]);
+		$this->load->view('employer-dashboard/editjob',['joblist1' => $joblist,'data1'=>$data1]);
 	}
 	public function editjobsubmit()
 	{

@@ -1,7 +1,6 @@
-<?php require("header.php");?><!--php required header-->
+<?php $page = "changepassword"; require("header1.php");?><!--php required header-->
 
-<?php $page = "changepassword"; require("sidebarnav.php");?><!--php required header-->
-        <main  class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <main  class="col-md-12 ml-sm-auto col-lg-12 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3  border-bottom" style="background-color:#53BD6D;padding-top: .4rem; padding-bottom: 0rem; margin-top:10px; border-radius:5px; padding: 0px 10px; color:white;">
               
             <h3 class="h4">Profile:  <?= $joblist1->companyname?>
@@ -26,7 +25,7 @@
           <div class="col-lg" style="background-color:#edf5e1; margin:10px; padding:5px; border-radius:5px; margin-bottom:20px;">
      <div class="text-center  display-4" style="font-size:2em; padding: 5px 0px">Edit User Password </div>
      <?php 
-        if(count($joblist1)){
+        if($joblist1 != null){
      ?>
 
 <form action="<?= base_url('employer/editemployerpasswordsubmit'); ?>" id="useremployerpassupdate"   method="post" accept-charset="utf-8">
@@ -87,5 +86,5 @@ echo form_error('passwordconfirm');
 
       </div>
     </div>
-<?php require("footer.php");?>
+<?php require("footer1.php");?>
 <!--php required footer-->

@@ -5,7 +5,7 @@
   
 
 <?php
-if( count($singlejob) ){
+if( $singlejob != null ){
 ?>
 <?php
 if($subscribesuccess = $this->session->flashdata('subscribesuccess'))

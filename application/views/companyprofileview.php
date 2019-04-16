@@ -5,7 +5,7 @@
 	
 
 <?php
-if( count($singlejob) ){
+if( $singlejob != null ){
 ?>
 
 <div class="grid-containersinglejob" style="padding-top: 10px;">

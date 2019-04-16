@@ -214,8 +214,11 @@ public function editemployerdetails()
 		}
 
 		$this->load->model('employermodel');
+
+		$empid = $_SESSION['user_id'];
+		$data1 = $this->employermodel->dashboardemp($empid);
 		$joblist = $this->employermodel->editemployerdetailsmodel($user);
-		$this->load->view('employer-dashboard/editemployeedetails',['joblist1' => $joblist]);
+		$this->load->view('employer-dashboard/editemployeedetails',['joblist1' => $joblist,'data1'=>$data1]);
 
 }
 public function editemployeedetailssubmit()
@@ -246,10 +249,12 @@ public function changepassword(){
     if($user == NULL ){
         $this->session->set_flashdata('loginforaccess', ' Please Login First for accessing Dashboard');
         return redirect('employer/login');
-    }
-        $this->load->model('employermodel');
+	}
+	$empid = $_SESSION['user_id'];
+	$this->load->model('employermodel');
+	$data1 = $this->employermodel->dashboardemp($empid);
         $joblist = $this->employermodel->changepasswordmodel($user);
-        $this->load->view('employer-dashboard/changepassword',['joblist1' => $joblist]);
+        $this->load->view('employer-dashboard/changepassword',['joblist1' => $joblist,'data1' => $data1]);
 }
 
 
@@ -288,10 +293,11 @@ public function editcompanydetails()
 			$this->session->set_flashdata('loginforjobposting', ' Please Login First for Job Posting');
 			return redirect('employer/login');
 		}
-
 		$this->load->model('employermodel');
+		$empid = $_SESSION['user_id'];
+		$data1 = $this->employermodel->dashboardemp($empid);
 		$joblist = $this->employermodel->editcompanydetailsmodel($user);
-		$this->load->view('employer-dashboard/editcompanydetails',['joblist1' => $joblist]);
+		$this->load->view('employer-dashboard/editcompanydetails',['joblist1' => $joblist,'data1'=>$data1]);
 
 }
 

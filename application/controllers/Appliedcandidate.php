@@ -11,11 +11,12 @@ class Appliedcandidate extends CI_Controller
 			return redirect('employer/login');
 		}
 
-
+		$empid = $_SESSION['user_id'];
 		$this->load->model('appliedcandidatemodel');
+		$this->load->model('employermodel');
 		$candidatelist = $this->appliedcandidatemodel->listingcandidate();
-		
-		$this->load->view('employer-dashboard/candidates',['joblist'=>$candidatelist]);
+		$data1 = $this->employermodel->dashboardemp($empid);
+		$this->load->view('employer-dashboard/candidates',['joblist'=>$candidatelist,'data1' => $data1]);
 	}
  
 	public function removecandidate($candidateid)
