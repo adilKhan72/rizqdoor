@@ -94,6 +94,25 @@
   text-decoration:none;
 }
 
+
+.over{
+  position: fixed;
+  display: none;
+  width: 80%;
+  height: 80%;
+  margin:auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f8f9fa ;
+  border-radius:4px;
+  
+  border: 1px solid #dee2e6 ;
+  z-index: 200;
+  cursor: pointer;
+}
+
   </style>
 </head>
 
@@ -115,7 +134,9 @@
     <a style="<?php if($page == "editjobseekerdetails"){echo 'color:#28a745; background-color: #edf5e1;';}?>"  href="<?= base_url('users/editjobseekerdetails'); ?>" class="list-group-item list-group-item-action bg-light">Edit Profile Details</a>
     <a style="<?php if($page == "changepassword"){echo 'color:#28a745; background-color: #edf5e1;';}?>"  href="<?= base_url('users/changepassword'); ?>" class="list-group-item list-group-item-action bg-light">Change Password</a>
     <a  style="<?php if($page == "changecv"){echo 'color:#28a745; background-color: #edf5e1;';}?>"  href="<?= base_url('users/changecv'); ?>" class="list-group-item list-group-item-action bg-light">Replace Resume</a>
-    
+    <a  style="<?php if($page == "jobsapplied"){echo 'color:#28a745; background-color: #edf5e1;';}?>"  href="<?= base_url('users/jobsapplied'); ?>" class="list-group-item list-group-item-action bg-light">
+    Jobs Applied</a>
+
   </div>
 </div>
 <!-- /#sidebar-wrapper -->

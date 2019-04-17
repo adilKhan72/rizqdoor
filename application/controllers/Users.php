@@ -227,11 +227,62 @@ public function Dashboard()
 	}
 
 	$jobseekeruserid = $_SESSION['jobseekeruser_id'];
+	$jobseekeruseremail = $_SESSION['jobseekeruser_email'];
 	$this->load->model('usersmodel');
 	$data1 = $this->usersmodel->dashboardjobseeker($jobseekeruserid);
+	$data2 = $this->usersmodel->dashboardjobseekerjobscounts($jobseekeruserid);
+	$data4 = $this->usersmodel->dashboardjobseekersubscriptioncounts($jobseekeruseremail);
+	$this->load->view('jobseeker-dashboard/index',['data1' => $data1,'data2'=>$data2,'data4'=>$data4]);		
 	
-	$this->load->view('jobseeker-dashboard/index',['data1' => $data1]);
 }
+
+public function jobsapplied()
+{
+	$user = $this->session->userdata('jobseekeruser_email');
+		#checking if user is logged in or not... if not then redirect
+	if($user == NULL ){
+		$this->session->set_flashdata('loginforaccess', ' Please Login First for accessing Dashboard');
+		return redirect('users/login');
+	}
+	$jobseekeruserid = $_SESSION['jobseekeruser_id'];
+	$this->load->model('usersmodel');
+	$data1 = $this->usersmodel->dashboardjobseeker($jobseekeruserid);
+	$data2 = $this->usersmodel->jobsapplied($jobseekeruserid);
+	$this->load->view('jobseeker-dashboard/jobsapplied',['data1' => $data1,'data2'=>$data2]);		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public function index3(){
+
+	// load base_url
+	$this->load->helper('url');
+  
+	// load view
+	$this->load->view('jobseeker-dashboard/user_view');
+   }
+  
+
+
+public function jobsappliedsingle(){
+	// POST data
+	$postData = $this->input->post('username');
+	$this->load->model('usersmodel');
+	$data1 = $this->usersmodel->jobsappliedsingle($postData);
+	echo json_encode($data1);
+}
+
 
 public function logout(){
 	$jobseekeruserid = $_SESSION['jobseekeruser_id'];

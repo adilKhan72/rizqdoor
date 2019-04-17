@@ -133,7 +133,55 @@ public function dashboardjobseeker($jobseekeruserid)
 	
 	 return $query1->row();
 	}
+	public function dashboardjobseekerjobscounts($jobseekeruserid)
+	{
+        $query1 = $this->db->select()
+				->where('userjobseekerid', $jobseekeruserid)
+				->from('logeduserappliedforjobmanytomany')
+				->join('post-job', 'post-job.id = logeduserappliedforjobmanytomany.postjobid')
+				->join('employer', 'employer.id = post-job.employerid')
+				->get('');
+	 return $query1->result();
+	 
+	}
+	public function dashboardjobseekersubscriptioncounts($jobseekeruseremail)
+	{
+        $query1 = $this->db->select()
+				->where('email', $jobseekeruseremail)
+				->from('subscription')
+				->get('');
+	 return $query1->result();
+	 
+	}
 
+
+
+	public function jobsapplied($jobseekeruserid)
+	{
+		$query1 = $this->db->select()
+		->where('userjobseekerid', $jobseekeruserid)
+		->from('logeduserappliedforjobmanytomany')
+		->join('post-job', 'post-job.id = logeduserappliedforjobmanytomany.postjobid')
+		->join('employer', 'employer.id = post-job.employerid','right inner')
+		->get('');
+return $query1->result();
+	}
+
+	public function jobsappliedsingle($postData)
+	{
+		$query1 = $this->db->select()
+		->where('id',$postData)
+		->from('post-job')
+		->get('');
+		$response = $query1->result_array();
+		return $response;
+	}
+
+
+	public function companiesapplied($jobseekeruserid)
+	{
+	 
+	}
 
 	public function listingjobsbycountry(){
 		$query = $this->db

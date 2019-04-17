@@ -193,7 +193,21 @@ if (isset($upload_error)) {
   </div>
   <div class="col-lg-6" style="background-color:#edf5e1;  border-radius:0px 5px 5px 0px; margin-bottom:20px;">
     <div class=" display-4" style="font-size:2em; padding: 5px 0px"> User Statistics </div>
+    <table class="table">
 
+    <tr>
+      <th scope="col">Total Jobs Applied for</th>
+      <th scope="col"><?php if($data2 != null) {echo count($data2);}else{echo 'You Have Not Applied Yet';} ?></th>
+    </tr>
+
+    <tr>
+      <th scope="row">Total Subcriptions</th>
+      <th><?php if($data4 != null) {
+        echo count($data4);
+        }else{echo 'You Have Not Subscribed';} ?></th>
+    </tr>
+
+</table>
   </div>
 </div>
 </div>

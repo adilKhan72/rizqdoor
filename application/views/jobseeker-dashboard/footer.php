@@ -1,22 +1,22 @@
   <!-- /#wrapper -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous" type='text/javascript'></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" type='text/javascript'></script>
     <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js" type='text/javascript'></script>
     <script>
       feather.replace()
     </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script><!-- jquery validator plugin for forms -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js"></script><!-- jquery validator plugin for forms -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js" type='text/javascript'></script><!-- jquery validator plugin for forms -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js" type='text/javascript'></script><!-- jquery validator plugin for forms -->
     <!-- Graphs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="<?= base_url('assets/bootbox.all.min.js'); ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" type='text/javascript'></script>
+    <script src="<?= base_url('assets/bootbox.all.min.js'); ?>" type='text/javascript'></script>
     
   <!-- Bootstrap core JavaScript -->
-  <script src="assets/javascript/jquery.min.js"></script>
-  <script src="assets/javascript/bootstrap.bundle.min.js"></script>
+  <script src="assets/javascript/jquery.min.js" type='text/javascript'></script>
+  <script type='text/javascript' src="assets/javascript/bootstrap.bundle.min.js" ></script>
 
   <!-- Menu Toggle Script -->
   <script>
@@ -368,15 +368,72 @@ function fileValidationforjobseekerprofilepicture(){
 }
     </script>
     </script>
-    <script src="<?= base_url('assets/employerdashboard/javascript/javascript.js'); ?>"></script><!-- custom Javascript -->
-    <script src="<?= base_url('assets/javascript/countries.js'); ?>"></script><!-- custom Javascript -->
+    <script src="<?= base_url('assets/employerdashboard/javascript/javascript.js'); ?>" type='text/javascript'></script><!-- custom Javascript -->
+    <script src="<?= base_url('assets/javascript/countries.js'); ?>" type='text/javascript'></script><!-- custom Javascript -->
     <script language="javascript">
 
   populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
   populateCountries("country2");
   populateCountries("country2");
       
+  function off() {
+  document.getElementById("overlay").style.display = "none";
+}
 </script>
+
+  <script type='text/javascript'>
+  $(document).ready(function(){
+ 
+
+
+
+   $('a').click(function(){
+    var username = $(this).attr("value");
+    $.ajax({
+     url:'<?=base_url('Users/jobsappliedsingle')?>',
+     method: 'post',
+     data: {username: username},
+     dataType: 'json',
+     success: function(response){
+
+      console.log(response);      
+      var email = response[0].email;
+      var skills = response[0].skills;
+      var discription = response[0].discription;
+      var noposition = response[0].noposition;
+      var jobfield = response[0].jobfield;
+      var city = response[0].city;
+      var country = response[0].country;
+      var exp = response[0].exp;
+      var gender = response[0].gender;
+      var posteddate = response[0].posteddate;
+      var qualification = response[0].qualification;
+      var currencytype = response[0].currencytype;
+      var salary = response[0].salary;
+
+
+      $('#email').text(email);
+      $('#skills').text(skills);
+      $('#discription').text(discription);
+      $('#noposition').text(noposition);
+      $('#jobfield').text(jobfield);
+      $('#city').text(city);
+      $('#country').text(country);
+      $('#exp').text(exp);
+      $('#salary').text(currencytype + ' : ' + salary);
+      $('#gender').text(gender);
+      $('#posteddate').text(posteddate);
+      $('#qualification').text(qualification);
+      
+        $('#overlay').css('display','block');
+      
+        
+     }
+   });
+  });
+ 
+ });
+ </script>
 </body>
 
 </html>
