@@ -4,49 +4,50 @@
         <p  onclick="off()" style="float:right; font-weight:bold; padding:10px; border: 1px solid #dee2e6; marign:10px; ">EXIT</p>
   <div style="margin:5%;">
    
-  <h3>Title : <span id='title'></span><br/></h3>
+  
    
    <div class="row">
    <div class="col-lg-4" style="padding:5px;"> 
-   Email : <span id='email'></span><br/>
+   <h3>Title : <span id='title'></span><br/></h3>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   Skills : <span id='skills'></span><br/>
-   </div>
-   <div class="col-lg-8" style="padding:5px;"> 
-   Description <span id='discription'></span><br/>
+    <b> Email :</b> <span id='email'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   No of Position : <span id='noposition'></span><br/>
+   <b>Skills :</b> <span id='skills'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   Job Field : <span id='jobfield'></span><br/>
+   <b>Description :</b> <span id='discription'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   City : <span id='city'></span><br/>
+   <b>No of Position :</b> <span id='noposition'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   Country : <span id='country'></span><br/>
+   <b>Job Field : </b><span id='jobfield'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   Experience : <span id='exp'></span><br/>
+   <b>City :</b> <span id='city'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   Currency Type : <span id='currencytype'></span><br/>
-   Salary  : <span id='salary'></span><br/>
+   <b>Country :</b> <span id='country'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   Preferred Gender : <span id='gender'></span><br/>
+   <b>Experience :</b> <span id='exp'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   Posted Date : <span id='posteddate'></span><br/>
+
+   <b>Salary  : </b><span id='salary'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   Qualification : <span id='qualification'></span><br/>
+   <b>Preferred Gender :</b> <span id='gender'></span><br/>
    </div>
    <div class="col-lg-4" style="padding:5px;"> 
-   qualification
+   <b>Posted Date : </b><span id='posteddate'></span><br/>
    </div>
+   <div class="col-lg-4" style="padding:5px;"> 
+   <b>Qualification :</b> <span id='qualification'></span><br/>
+   </div>
+
    </div>
   </div>
 

@@ -23,6 +23,47 @@ $this->db->update('employer');
 
 }
 
+public function statistics($user)
+{
+	$query1 = $this->db->select()
+	->where('employerid',$user)
+	->from('post-job')
+	->get('');
+	$postedjobcount = $query1->num_rows();
+
+	$query2 = $this->db->select()
+	->where('employerid',$user)
+	->join('appliedjobseeker','appliedjobseeker.postjobid = post-job.id')
+	->from('post-job')
+	->get('');
+	$appliedjobseekers1 = $query2->num_rows();
+
+	$query3 = $this->db->select()
+	->where('employerid',$user)
+	->join('logeduserappliedforjobmanytomany','logeduserappliedforjobmanytomany.postjobid = post-job.id')
+	->from('post-job')
+	->get('');
+	$appliedjobseekers2 = $query3->num_rows();
+
+	$appliedjobseekers =  $appliedjobseekers2 + $appliedjobseekers1;
+	
+	$array = array(
+		'postedjobs' => $postedjobcount,
+		'appliedjobseekers' =>  $appliedjobseekers,
+	);
+
+	return $array;
+}
+
+public function testwebservice($postData)
+{
+	$query1 = $this->db->select()
+	->where('id',$postData)
+	->from('post-job')
+	->get('');
+	$response = $query1->result_array();
+	return $response;
+}
 
 public function changepasswordmodel($user){
 	$query1 = $this->db->select()

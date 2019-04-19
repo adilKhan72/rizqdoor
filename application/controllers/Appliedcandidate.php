@@ -15,8 +15,9 @@ class Appliedcandidate extends CI_Controller
 		$this->load->model('appliedcandidatemodel');
 		$this->load->model('employermodel');
 		$candidatelist = $this->appliedcandidatemodel->listingcandidate();
+		$candidatelist3 = $this->appliedcandidatemodel->listingcandidate2();			
 		$data1 = $this->employermodel->dashboardemp($empid);
-		$this->load->view('employer-dashboard/candidates',['joblist'=>$candidatelist,'data1' => $data1]);
+		$this->load->view('employer-dashboard/candidates',['joblist'=>$candidatelist,'candidatelist3'=>$candidatelist3,'data1' => $data1]);
 	}
  
 	public function removecandidate($candidateid)

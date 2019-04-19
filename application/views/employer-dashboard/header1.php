@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title><?php echo $page; ?></title>
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -49,14 +49,17 @@
 </a>
   </div>
   <div class="list-group list-group-flush">
-
+  <a style=""  href=""  class="list-group-item list-group-item-action bg-light">
+   <b style="color:#0c5460;"> Posted Jobs: </b> <span style="color:#0c5460;" id="postedjobs"></span><br>
+   <b style="color:#0c5460;"> Applied Candidates: </b> <span style="color:#0c5460;" id="appliedjobseekers"></span>
+  </a>
     <a style="<?php if($page == "Dashboard"){echo 'color:#28a745; background-color: #edf5e1;';}?>"  href="<?= base_url('employer/dashboard'); ?>" class="list-group-item list-group-item-action bg-light">
     Dashboard
   </a>
     <a style="<?php if($page == "candidatelisting"){echo 'color:#28a745;  background-color: #edf5e1;';}?>"  href="<?= base_url('Appliedcandidate/candidatelisting'); ?>" class="list-group-item list-group-item-action bg-light">
     Candidates
   </a>
-    <a style="<?php if($page == "changepassword"){echo 'color:#28a745; background-color: #edf5e1;';}?>"  href="<?= base_url('users/changepassword'); ?>" class="list-group-item list-group-item-action bg-light">
+    <a style="<?php if($page == "changepassword"){echo 'color:#28a745; background-color: #edf5e1;';}?>"  href="<?= base_url('employer/changepassword'); ?>" class="list-group-item list-group-item-action bg-light">
     Change Password
   </a>
     <a href="<?= base_url('employer/postjob'); ?>" class="list-group-item list-group-item-action bg-light">Post A Job</a>

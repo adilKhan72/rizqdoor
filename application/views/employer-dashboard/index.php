@@ -4,7 +4,7 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3  border-bottom" style="background-color:#53BD6D;padding-top: .4rem; padding-bottom: 0rem; margin-top:10px; border-radius:5px; padding: 0px 10px; color:white;">
               
             <h3 class="h4"><?= $data1->companyname?>
-
+            <i id="empid" value="<?= $data1->id?>"></i>
             </h3>
             <?php
                if($jobposted = $this->session->flashdata('jobpostsuccess')){
@@ -25,6 +25,20 @@
           </div>
             
           <div class="container">
+          <div class=row>
+             <div class="col-md-3" id="">
+             <b>asd</b>
+             </div>
+             <div class="col-md-3" id="">
+             <b>asd</b>
+             </div>
+             <div class="col-md-3" id="">
+             <b>fewfda</b>
+             </div>
+             <div class="col-md-3" id="">
+             <b>asdf</b>
+             </div>
+          </div>
   <div class="row">
       
           <div class="col-lg" style="background-color:#edf5e1; margin:10px; padding:5px; border-radius:5px; margin-bottom:20px;">

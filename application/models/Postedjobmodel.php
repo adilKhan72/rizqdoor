@@ -20,8 +20,16 @@ class Postedjobmodel extends CI_Model
 				->where('postjobid', $jobpostid)
 				->from('appliedjobseeker')
 				->get();
-	 $rowcount = $query1->num_rows();
-							 $overallres = array($rowcount,$result);
+				$appcan1 = $query1->num_rows();
+
+				$query2 = $this->db->select('*')
+				->where('postjobid', $jobpostid)
+				->from('logeduserappliedforjobmanytomany')
+				->get();
+				$appcan2 = $query2->num_rows();
+	 $rowcount = $appcan1 + $appcan2;
+
+	$overallres = array($rowcount,$result);
  array_push($overallres1,$overallres);
 							}
 		}
@@ -44,6 +52,18 @@ class Postedjobmodel extends CI_Model
 	
 	 return $query1->result();
 	}
+
+	public function registeredcandidateappliedjob($appcandidate)
+	{
+		$query1 = $this->db->select()
+				->where('postjobid', $appcandidate)
+				->join('userjobseeker','userjobseeker.id = logeduserappliedforjobmanytomany.userjobseekerid')
+				->from('logeduserappliedforjobmanytomany')
+				->get('');
+	
+	 return $query1->result();
+	}
+
 	public function jobofappcan($appcandidate)
 	{
 		$query1 = $this->db->select()

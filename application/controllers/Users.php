@@ -284,6 +284,17 @@ public function jobsappliedsingle(){
 }
 
 
+
+public function testwebservice($postData){
+	// POST data
+	//$postData = $this->input->post('username');
+	$this->load->model('usersmodel');
+	$data1 = $this->usersmodel->testwebservice($postData);
+	echo json_encode($data1);
+}
+
+
+
 public function logout(){
 	$jobseekeruserid = $_SESSION['jobseekeruser_id'];
 

@@ -39,11 +39,12 @@ class Postedjob extends CI_Controller
 
 		$this->load->model('postedjobmodel');
 		$joblist = $this->postedjobmodel->candidateappliedjob($appcandidate);
+		$joblist3 = $this->postedjobmodel->registeredcandidateappliedjob($appcandidate);
 		$joblist2 = $this->postedjobmodel->jobofappcan($appcandidate);
 		$this->load->model('employermodel');
 		$empid = $_SESSION['user_id'];
 		$data1 = $this->employermodel->dashboardemp($empid);
-         $this->load->view('employer-dashboard/posted-jobs-applied-candidates',['joblist' => $joblist,'joblist2' => $joblist2,'data1'=>$data1]);
+         $this->load->view('employer-dashboard/posted-jobs-applied-candidates',['joblist' => $joblist,'joblist3' => $joblist3,'joblist2' => $joblist2,'data1'=>$data1]);
 	}
 	public function editjob($editjobid)
 	{

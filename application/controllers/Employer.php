@@ -27,13 +27,13 @@ class Employer extends CI_Controller {
                 
                 if ($this->employermodel->loginsubmit($empem,$password)){
                 #if the query run successfully
-                $userid = $this->employermodel->loginsubmit($email,$password);
+                $userid = $this->employermodel->loginsubmit($empem,$password);
 
                 # Creating Session.
                 $this->load->library('session');
 
                 #assignign email to session for user login.
-                $this->session->set_userdata(['user_email'=> $email, 'user_id' => $userid]);
+                $this->session->set_userdata(['user_email'=> $empem, 'user_id' => $userid]);
 
                 $this->session->set_flashdata('loginsuccess', ' Logged in Successfully');
                         
@@ -202,6 +202,24 @@ class Employer extends CI_Controller {
 
                 }
 	}
+}
+
+public function statistics(){
+	// POST data
+	//$postData = $this->input->post('username');
+	$user1 = $this->session->userdata('user_id');
+
+	$this->load->model('employermodel');
+	$data1 = $this->employermodel->statistics($user1);
+	echo json_encode($data1);
+}
+
+public function testwebservice($postData){
+	// POST data
+	//$postData = $this->input->post('username');
+	$this->load->model('employermodel');
+	$data1 = $this->employermodel->testwebservice($postData);
+	echo json_encode($data1);
 }
 
 public function editemployerdetails()

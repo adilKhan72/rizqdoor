@@ -396,7 +396,8 @@ function fileValidationforjobseekerprofilepicture(){
      dataType: 'json',
      success: function(response){
 
-      console.log(response);      
+      console.log(response);   
+      var title = response[0].jobtitle;   
       var email = response[0].email;
       var skills = response[0].skills;
       var discription = response[0].discription;
@@ -412,6 +413,7 @@ function fileValidationforjobseekerprofilepicture(){
       var salary = response[0].salary;
 
 
+      $('#title').text(title);
       $('#email').text(email);
       $('#skills').text(skills);
       $('#discription').text(discription);

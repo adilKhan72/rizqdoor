@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title><?php echo $page; ?></title>
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap CSS -->
@@ -96,18 +96,16 @@
 
 
 .over{
-  position: fixed;
+  position: absolute;
   display: none;
   width: 80%;
-  height: 80%;
+  height: auto;
   margin:auto;
-  top: 0;
+  top: 60px;
   left: 0;
   right: 0;
-  bottom: 0;
   background-color: #f8f9fa ;
   border-radius:4px;
-  
   border: 1px solid #dee2e6 ;
   z-index: 200;
   cursor: pointer;

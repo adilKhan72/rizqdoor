@@ -177,6 +177,16 @@ return $query1->result();
 		return $response;
 	}
 
+	public function testwebservice($postData)
+	{
+		$query1 = $this->db->select()
+		->where('id',$postData)
+		->from('post-job')
+		->get('');
+		$response = $query1->result_array();
+		return $response;
+	}
+
 
 	public function companiesapplied($jobseekeruserid)
 	{
