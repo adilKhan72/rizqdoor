@@ -118,7 +118,7 @@ if (isset($upload_error)) {
         <thead class="">
           <tr>
             <th scope="col">Email</th>
-            <th scope="col"><?= $data1->email?></th>
+            <th id="useremail" value="<?= $data1->email?>" scope="col"><?= $data1->email?></th>
           </tr>
           <tr>
             <th scope="col">Name</th>
@@ -203,10 +203,21 @@ if (isset($upload_error)) {
     <tr>
       <th scope="row">Total Subcriptions</th>
       <th><?php if($data4 != null) {
-        echo count($data4);
-        }else{echo 'You Have Not Subscribed';} ?></th>
-    </tr>
 
+        echo count($data4);
+ }else{echo 'You Have Not Subscribed';} ?></th>
+    </tr>
+    <?php if($data4 != null) {
+    ?>
+<tr>
+<th colspan="2">
+<button type="button" id="subscriptionshow" class="btn btn-info btn-lg btn-block"> Show Subscriptions Details</button>
+</th>
+</tr>
+<tr id="subdatashowhide" style="display:none;">
+
+</tr>
+<?php } ?>
 </table>
   </div>
 </div>

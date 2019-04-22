@@ -34,13 +34,17 @@ class Users extends CI_Controller {
 		'cur_tag_close' => '</a></div>'
 	];
 	$this->pagination->initialize($config);
-
 	$joblist1 = $this->usersmodel->listingpostedjobs($config['per_page'],$this->uri->segment(3));
-
 	$joblistbycountry = $this->usersmodel->listingjobsbycountry();
-
-
 	$joblistbyindustory = $this->usersmodel->listingjobsbyindustory();
+
+$this->load->library('user_agent');
+  $data['browser'] = $this->agent->browser();
+  $data['browser_version'] = $this->agent->version();
+  $data['os'] = $this->agent->platform();
+  $data['ip_address'] = $this->input->ip_address();
+
+  $this->usersmodel->userenddetails($data);
 
 	$this->load->view('index',['joblist1' => $joblist1 ,'joblistbyindustory' => $joblistbyindustory ,'joblistbycountry' => $joblistbycountry]);
 
@@ -282,7 +286,13 @@ public function jobsappliedsingle(){
 	$data1 = $this->usersmodel->jobsappliedsingle($postData);
 	echo json_encode($data1);
 }
-
+public function regusersubscription(){
+	// POST data
+	 $postData = $this->input->post('username');
+	$this->load->model('usersmodel');
+	$data1 = $this->usersmodel->regusersubscription($postData);
+	echo json_encode($data1);
+}
 
 
 public function testwebservice($postData){
@@ -977,6 +987,13 @@ public function uploadpicture(){
 		//$this->load->view('applyforjob',['single' => $singlejob]);
 
 	}
+	public function deletesubscription()
+	{
+		$unsubscribid = $this->input->post('unsubscribid');
+		$this->load->model('usersmodel');
+		$this->usersmodel->deletesubscription($unsubscribid);
+		echo json_encode("Subscription deleted");
+	}
 
 
 	public function subscribesubmit()
@@ -1135,7 +1152,7 @@ public function uploadpicture(){
 				$this->load->view('resultbycompany',['joblist1' => $joblist1,'searchdata'=> $searchdata ]);
                 		//unset($searchdata['submit']);
 			} else {
-				$this->session->set_flashdata('nodatamatch', 'No Data Matched Your Criteria Please Try Something else!');
+				$this->session->set_flashdata('nodatamatch', 'No Data Matched Your Criteria Please Try Something Else!');
                 		#redirecting to another method in this controler.
 				return redirect('users/index');
 			}

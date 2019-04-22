@@ -17,7 +17,7 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/custom-font-icons/icon-style.css'); ?> "><!-- custom stylesheet for icons -->
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/custom-font-icons/logo-style.css'); ?> "><!-- custom stylesheet for icons -->
   <link rel="icon" href="<?= base_url('assets/images/logo_header_browser.gif" type="image/gif" sizes="16x16'); ?>">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/stylesheet/bootstrap.css'); ?> ">
+
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/stylesheet/simple-sidebar.css'); ?> ">
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/jobseekerdashboard/stylesheet/style.css'); ?>"><!-- custom stylesheet for designing-->
   <style>

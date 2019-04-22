@@ -177,6 +177,16 @@ return $query1->result();
 		return $response;
 	}
 
+	public function regusersubscription($postData)
+	{
+		$query1 = $this->db->select()
+		->where('email',$postData)
+		->from('subscription')
+		->get('');
+		$response = $query1->result_array();
+		return $response;
+	}
+
 	public function testwebservice($postData)
 	{
 		$query1 = $this->db->select()
@@ -572,6 +582,39 @@ public function unsubscribemodel($unsubscribdata){
                                    $this->db->delete('subscription');
 		
 	}
+
+
+
+public function userenddetails($data){
+	
+$ip_address = $data['ip_address'];
+$q = $this->db->from('user_end_details')
+			->select()
+			->where('ip_address', $ip_address)
+			->get();
+$result = $q->num_rows();
+
+if($result != 0){
+
+$result = $q->row();
+
+$numberofvisits = $result->numbers_of_visits;
+$id = $result->id;
+$data['numbers_of_visits'] = $numberofvisits + 1;
+$data['id'] = $id;
+$this->db->replace('user_end_details', $data);
+
+}else{
+
+	$data['numbers_of_visits'] = "1";
+	$this->db->insert('user_end_details',$data);
+	return $this->db->affected_rows() > 0;
+	
+}
+
+
+	
+}
 }
 
 ?>

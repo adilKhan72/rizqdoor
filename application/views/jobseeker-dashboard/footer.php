@@ -14,9 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" type='text/javascript'></script>
     <script src="<?= base_url('assets/bootbox.all.min.js'); ?>" type='text/javascript'></script>
     
-  <!-- Bootstrap core JavaScript -->
-  <script src="assets/javascript/jquery.min.js" type='text/javascript'></script>
-  <script type='text/javascript' src="assets/javascript/bootstrap.bundle.min.js" ></script>
+ 
+
 
   <!-- Menu Toggle Script -->
   <script>
@@ -383,7 +382,49 @@ function fileValidationforjobseekerprofilepicture(){
 
   <script type='text/javascript'>
   $(document).ready(function(){
- 
+    // $('#subscriptionhide').click(function(){
+
+    //   $('#subdatashowhide').css('display','hidden');
+
+    // }); 
+
+    $('#subscriptionshow').click(function(){
+      var isHidden  = $('#dvData').is(':hidden');
+      if($('#subdatashowhide').is(':hidden')){
+
+        // subdatashowhide
+        if($('#elementsofsub').length){
+          $('#subdatashowhide').css('display','block');
+        $('#subscriptionshow').text("Hide Subscriptions Details");
+}else{
+  var username = $('#useremail').attr("value");
+    $.ajax({
+     url:'<?=base_url('Users/regusersubscription')?>',
+     method: 'post',
+     data: {username: username},
+     dataType: 'json',
+     success: function(response){
+   
+      for (var i = 0; i < response.length; i++) {
+        var id = response[i].id;  
+        var email = response[i].email;   
+      var jobtitle = response[i].jobtitle;
+      $("#subdatashowhide").prepend("<tr id='elementsofsub'><td>"+ email +"</td><td>"+ jobtitle +"</td></tr>");    
+        }
+        
+     }
+   });
+   $('#subdatashowhide').css('display','block');
+        $('#subscriptionshow').text("Hide Subscriptions Details");
+}
+
+
+   
+    }else{
+      $('#subdatashowhide').css('display','none');
+      $('#subscriptionshow').text("Show Subscriptions Details");
+    }
+  });
 
 
 
@@ -396,7 +437,6 @@ function fileValidationforjobseekerprofilepicture(){
      dataType: 'json',
      success: function(response){
 
-      console.log(response);   
       var title = response[0].jobtitle;   
       var email = response[0].email;
       var skills = response[0].skills;
@@ -434,6 +474,9 @@ function fileValidationforjobseekerprofilepicture(){
    });
   });
  
+ 
+
+
  });
  </script>
 </body>
