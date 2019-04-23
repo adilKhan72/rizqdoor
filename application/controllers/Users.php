@@ -1140,17 +1140,10 @@ public function uploadpicture(){
                 	#at same time checking if the query runs output true or false.
 			if ($this->usersmodel->searchmodel($searchdata) != NULL) {
 				$joblist1 = $this->usersmodel->searchmodel($searchdata);
-
 				
-
 				$this->load->view('results',['joblist1' => $joblist1,'searchdata'=> $searchdata ]);
-                		//unset($searchdata['submit']);
+                		
 
-			}elseif($this->usersmodel->searchmodel2($searchdata) != NULL){
-				$joblist1 = $this->usersmodel->searchmodel2($searchdata);
-
-				$this->load->view('resultbycompany',['joblist1' => $joblist1,'searchdata'=> $searchdata ]);
-                		//unset($searchdata['submit']);
 			} else {
 				$this->session->set_flashdata('nodatamatch', 'No Data Matched Your Criteria Please Try Something Else!');
                 		#redirecting to another method in this controler.

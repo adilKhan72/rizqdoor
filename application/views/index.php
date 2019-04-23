@@ -28,16 +28,7 @@ if($applied = $this->session->flashdata('alreadyapplied'))
         <?php
       }
 
-      if($nodatamatch = $this->session->flashdata('nodatamatch'))
-       {
-        ?>
-        <p class="afterheading" id="nodatamatch" style="color:#C21E0F; font-size: 0.7em;">
-          <?php
-            echo $nodatamatch;
-          ?>
-        </p>
-        <?php
-      }
+     
         ?>
 
   </h1>

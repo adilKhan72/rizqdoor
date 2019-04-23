@@ -12,7 +12,14 @@
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/custom-font-icons/logo-style.css'); ?> "><!-- custom stylesheet for icons -->
   <link rel="icon" href="<?= base_url('assets/images/logo_header_browser.gif" type="image/gif" sizes="16x16'); ?>">
   <style>
+.resultpageform{
+  display: block;
+  padding:20px 0px;
+}
 
+.rizqdoorsloganresultpage{
+  text-align: center;
+}
 </style>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

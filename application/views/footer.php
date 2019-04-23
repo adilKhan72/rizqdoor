@@ -260,6 +260,12 @@ today = yyyy + '-' + mm + '-' + mm ;
         }
       }
     });
+
+    $(document).on('input', '#salaryrange', function() {
+    var salaryvalue = $('#salaryrange').html( $(this).val() );
+    console.log(salaryvalue);
+    $('#showsalaryrange').text(" Min Salary " + salaryvalue[0]['value']);
+});
 });
 
 
