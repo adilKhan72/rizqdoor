@@ -276,8 +276,22 @@ public function index3(){
 	// load view
 	$this->load->view('jobseeker-dashboard/user_view');
    }
-  
+ 
+   public function searchresultfilterscompaniesnamesandids(){
+	// AJAX POST data
+	//$postData = $this->input->post('data');
+	$this->load->model('usersmodel');
+	$data1 = $this->usersmodel->searchresultfilterscompaniesnamesandids();
+	echo json_encode($data1);
+}  
 
+   public function searchresultfilters(){
+	// AJAX POST data
+	$postData = $this->input->post('data');
+	$this->load->model('usersmodel');
+	$data1 = $this->usersmodel->searchresultfilters($postData);
+	echo json_encode($data1);
+}
 
 public function jobsappliedsingle(){
 	// POST data
@@ -286,6 +300,7 @@ public function jobsappliedsingle(){
 	$data1 = $this->usersmodel->jobsappliedsingle($postData);
 	echo json_encode($data1);
 }
+
 public function regusersubscription(){
 	// POST data
 	 $postData = $this->input->post('username');
@@ -1104,6 +1119,32 @@ public function uploadpicture(){
 
 		$this->load->view('termandcondition');
 	}
+	
+
+	public function searchingredirect($searchtitle,$country = "",$city = ""){
+		
+		$searchdata['searchtitle'] = urldecode($searchtitle);
+		$searchdata['country'] = urldecode($country);
+		$searchdata['city'] = urldecode($city);		
+		
+		#loading model 
+					$this->load->model('usersmodel');
+
+                	#loading function from model and passign data to it 
+                	#at same time checking if the query runs output true or false.
+			if ($this->usersmodel->searchmodel($searchdata) != NULL) {
+				$joblist1 = $this->usersmodel->searchmodel($searchdata);
+				
+				$this->load->view('results',['joblist1' => $joblist1,'searchdata'=> $searchdata ]);
+                		
+
+			} else {
+				$this->session->set_flashdata('nodatamatch', 'No Data Matched Your Criteria Please Try Something Else!');
+                		#redirecting to another method in this controler.
+				return redirect('users/index');
+			}
+		
+	}
 	public function search()
 	{
 		header('Cache-Control: no cache'); //disable validation of form by the browser
@@ -1132,23 +1173,8 @@ public function uploadpicture(){
 				$searchdata['country'] = "";
 				$searchdata['city'] = "";
 			}
+			return redirect('users/searchingredirect/'.$searchdata['searchtitle'].'/'.$searchdata['country'].'/'.$searchdata['city']);
 
-                	#loading model 
-			$this->load->model('usersmodel');
-
-                	#loading function from model and passign data to it 
-                	#at same time checking if the query runs output true or false.
-			if ($this->usersmodel->searchmodel($searchdata) != NULL) {
-				$joblist1 = $this->usersmodel->searchmodel($searchdata);
-				
-				$this->load->view('results',['joblist1' => $joblist1,'searchdata'=> $searchdata ]);
-                		
-
-			} else {
-				$this->session->set_flashdata('nodatamatch', 'No Data Matched Your Criteria Please Try Something Else!');
-                		#redirecting to another method in this controler.
-				return redirect('users/index');
-			}
 		}
 	}
 

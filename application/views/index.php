@@ -88,10 +88,15 @@ echo $joblist->discription;
 // }
  ?>
 </div>
-<p style=" color:grey; font-weight: 400; font-size: 1rem; padding-bottom: 10px;">
+<div class="text-right" style="text-transform: capitalize; display :block; color:grey; font-weight: 400; font-size: 1rem; padding-bottom: 10px;">
+      <?php 
+        echo $joblist->posteddate;
+       ?>
+        <span class="text-right" style="text-transform: capitalize; float:right; font-weight: 400;">
+      Sal : <?= $joblist->salary ?> : <?= $joblist->currencytype ?>
 
-<?= $joblist->posteddate ?>
-</p>
+      </span>
+      </div>
 </a>
 <?php }} ?>
 </div>

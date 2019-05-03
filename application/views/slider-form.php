@@ -29,11 +29,14 @@ echo form_error('searchtitle');
         'required' => '',
         'pattern' => '^[a-zA-Z\s]+$',
 'title' => 'Only Alphabets allowed',
-        'placeholder'     => 'Title, Skill...',
+        'placeholder'     => 'Search Job Title',
 );
 
 echo form_input($data);
-
+?>
+<input type="hidden" id="custIdabc" name="custIdabc" value="Select Country">
+<input type="hidden" id="custIddef" name="custIddef" value="Select City">
+<?php
 
 $options = array(
 

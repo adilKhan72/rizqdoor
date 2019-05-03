@@ -309,7 +309,6 @@ li a:hover {
 
 </head>
 
--->
 
 <body class="bg-purple">
         

@@ -263,9 +263,282 @@ today = yyyy + '-' + mm + '-' + mm ;
 
     $(document).on('input', '#salaryrange', function() {
     var salaryvalue = $('#salaryrange').html( $(this).val() );
-    console.log(salaryvalue);
-    $('#showsalaryrange').text(" Min Salary " + salaryvalue[0]['value']);
+
+    var salarytyperesults = $("#salarytyperesults option:selected").val();
+    if(salarytyperesults == '0'){
+      $('#showsalaryrange').text(" Min Salary " + salaryvalue[0]['value']);
+      $('#selectedornot').text("Please Select Salary Type First");
+      
+    }else{
+      $('#showsalaryrange').text(" Min Salary: " + salaryvalue[0]['value']);
+      $('#selectedornot').text("  ");
+    }
+    
+    
 });
+$('#expinresults,#companyinresults,#qualificationinresults,#genderinresultes,#jobfieldinresults,#state,#country').on('change',function(){
+        
+        var salarytyperesults = $("#salarytyperesults option:selected").val();
+
+          $('#selectedornot').text("  ");
+          var salaryvalue = $('#salaryrange').html( $(this).val() );
+          var salarylimit = salaryvalue[0]['value'];
+          if(salarylimit == 100000 || salarylimit == '10000'){
+            salarylimit = '0';
+          }
+  
+          var jobtitle = $('#titlesearchinresult').val();
+  
+          var cityfromsearch = $('#custIddef').val();
+          if(cityfromsearch == "Select City"){
+  
+            var city = $("#state option:selected").val();
+            if(city == null || city == 0){
+            city = "0";
+            }
+  
+          }else{
+            var city = $('#custIddef').val();
+          }
+          
+          var countryfromsearch = $('#custIdabc').val();
+          if(countryfromsearch == "Select Country"){
+  
+            var country = $("#country option:selected").val();
+            if(country == null || country == 0 || country == -1 || country == "-1"){
+            country = "0";
+            }
+  
+          }else{
+            var country = $('#custIdabc').val();
+          }
+  
+          
+          var exp = $("#expinresults option:selected").val();
+          var company = $("#companyinresults option:selected").val();
+          var qualification = $("#qualificationinresults option:selected").val();
+          var gender = $("#genderinresultes option:selected").val();
+          var jobfield = $("#jobfieldinresults option:selected").val();
+          var data = [salarytyperesults,
+                      salarylimit,
+                      jobtitle,
+                      country,
+                      city,
+                      exp,
+                      company,
+                      qualification,
+                      gender,
+                      jobfield];
+                $.ajax({
+                url:'<?=base_url('Users/searchresultfilters')?>',
+                method: 'post',
+                data: {data: data},
+                dataType: 'json',
+                success: function(response){
+                  if(response == 0 || response == '0' || response == null){
+                    $(".intro").remove();
+                    
+                    $("#resultsbyajaxresults").append(
+                      '<a href="" class="grid-item6 intro" style="text-align: left;"><h5 id="" style=" font-size: 1.25rem; text-transform: capitalize; font-weight: 500; color:#05386b;  padding-bottom: 5px;"> No Data Found! </h5><div class="discriptions" id="descriptionss" style="">The Selected Filtered Data Was Not In Our Database Please Try Something Else!</div></a>'
+                    );
+  
+                  }else{
+                    $(".intro").remove();
+  
+                    $.each(response, function( index, value ) {
+                    var object = value;
+                    
+                    $("#resultsbyajaxresults").append(
+                      '<a href="<?=base_url("users/singlejob/")?>'+object.id +'" class="grid-item6 intro" style="text-align: left;"><h5 id="'+object.id +'" style=" font-size: 1.25rem; text-transform: capitalize; font-weight: 500; color:#05386b;  padding-bottom: 5px;">' + object.jobtitle + ' </h5><div class="text-right" style="text-transform: capitalize; display :block;  color:#05386b; font-weight: 400;">' + object[0] + '<span class="text-right" style="text-transform: capitalize; color:#05386b; float:right; font-weight: 400;">' + object.city + '</span></div><div class="discriptions" id="descriptionss" style="">' + object.discription + '</div><div class="text-right" style="text-transform: capitalize; display :block; color:grey; font-weight: 400; font-size: 1rem; padding-bottom: 10px;">' + object.posteddate + '<span class="text-right" style="text-transform: capitalize; float:right; font-weight: 400;"> Sal : ' + object.salary + ' : ' + object.currencytype + '</span></div></a>'
+                    );
+                  });
+                  }            
+                }
+              });
+      
+      });
+      $('#titlesearchinresult').on('keyup',function(){
+        
+        var salarytyperesults = $("#salarytyperesults option:selected").val();
+
+          $('#selectedornot').text("  ");
+          var salaryvalue = $('#salaryrange').html( $(this).val() );
+          var salarylimit = salaryvalue[0]['value'];
+          if(salarylimit == 100000 || salarylimit == '10000'){
+            salarylimit = '0';
+          }
+  
+          var jobtitle = $('#titlesearchinresult').val();
+  
+          var cityfromsearch = $('#custIddef').val();
+          if(cityfromsearch == "Select City"){
+  
+            var city = $("#state option:selected").val();
+            if(city == null || city == 0){
+            city = "0";
+            }
+  
+          }else{
+            var city = $('#custIddef').val();
+          }
+          
+          var countryfromsearch = $('#custIdabc').val();
+          if(countryfromsearch == "Select Country"){
+  
+            var country = $("#country option:selected").val();
+            if(country == null || country == 0 || country == -1 || country == "-1"){
+            country = "0";
+            }
+  
+          }else{
+            var country = $('#custIdabc').val();
+          }
+  
+          
+          var exp = $("#expinresults option:selected").val();
+          var company = $("#companyinresults option:selected").val();
+          var qualification = $("#qualificationinresults option:selected").val();
+          var gender = $("#genderinresultes option:selected").val();
+          var jobfield = $("#jobfieldinresults option:selected").val();
+          var data = [salarytyperesults,
+                      salarylimit,
+                      jobtitle,
+                      country,
+                      city,
+                      exp,
+                      company,
+                      qualification,
+                      gender,
+                      jobfield];
+                $.ajax({
+                url:'<?=base_url('Users/searchresultfilters')?>',
+                method: 'post',
+                data: {data: data},
+                dataType: 'json',
+                success: function(response){
+                  if(response == 0 || response == '0' || response == null){
+                    $(".intro").remove();
+                    
+                    $("#resultsbyajaxresults").append(
+                      '<a href="" class="grid-item6 intro" style="text-align: left;"><h5 id="" style=" font-size: 1.25rem; text-transform: capitalize; font-weight: 500; color:#05386b;  padding-bottom: 5px;"> No Data Found! </h5><div class="discriptions" id="descriptionss" style="">The Selected Filtered Data Was Not In Our Database Please Try Something Else!</div></a>'
+                    );
+  
+                  }else{
+                    $(".intro").remove();
+  
+                    $.each(response, function( index, value ) {
+                    var object = value;
+                    
+                    $("#resultsbyajaxresults").append(
+                      '<a href="<?=base_url("users/singlejob/")?>'+object.id +'" class="grid-item6 intro" style="text-align: left;"><h5 id="'+object.id +'" style=" font-size: 1.25rem; text-transform: capitalize; font-weight: 500; color:#05386b;  padding-bottom: 5px;">' + object.jobtitle + ' </h5><div class="text-right" style="text-transform: capitalize; display :block;  color:#05386b; font-weight: 400;">' + object[0] + '<span class="text-right" style="text-transform: capitalize; color:#05386b; float:right; font-weight: 400;">' + object.city + '</span></div><div class="discriptions" id="descriptionss" style="">' + object.discription + '</div><div class="text-right" style="text-transform: capitalize; display :block; color:grey; font-weight: 400; font-size: 1rem; padding-bottom: 10px;">' + object.posteddate + '<span class="text-right" style="text-transform: capitalize; float:right; font-weight: 400;"> Sal : ' + object.salary + ' : ' + object.currencytype + '</span></div></a>'
+                    );
+                  });
+                  }            
+                }
+              });
+      
+      });
+$('#salarytyperesults,#salaryrange').on('change',function(){
+        
+      var salarytyperesults = $("#salarytyperesults option:selected").val();
+      if(salarytyperesults == '0'){
+      $('#selectedornot').text("Please Select Salary Type First");
+      
+      }else{
+
+        $('#selectedornot').text("  ");
+        var salaryvalue = $('#salaryrange').html( $(this).val() );
+        var salarylimit = salaryvalue[0]['value'];
+        if(salarylimit == 100000 || salarylimit == '10000'){
+          salarylimit = '0';
+        }
+
+        var jobtitle = $('#titlesearchinresult').val();
+
+        var cityfromsearch = $('#custIddef').val();
+        if(cityfromsearch == "Select City"){
+
+          var city = $("#state option:selected").val();
+          if(city == null || city == 0){
+          city = "0";
+          }
+
+        }else{
+          var city = $('#custIddef').val();
+        }
+        
+        var countryfromsearch = $('#custIdabc').val();
+        if(countryfromsearch == "Select Country"){
+
+          var country = $("#country option:selected").val();
+          if(country == null || country == 0 || country == -1 || country == "-1"){
+          country = "0";
+          }
+
+        }else{
+          var country = $('#custIdabc').val();
+        }
+
+        
+        var exp = $("#expinresults option:selected").val();
+        var company = $("#companyinresults option:selected").val();
+        var qualification = $("#qualificationinresults option:selected").val();
+        var gender = $("#genderinresultes option:selected").val();
+        var jobfield = $("#jobfieldinresults option:selected").val();
+        var data = [salarytyperesults,
+                    salarylimit,
+                    jobtitle,
+                    country,
+                    city,
+                    exp,
+                    company,
+                    qualification,
+                    gender,
+                    jobfield];
+              $.ajax({
+              url:'<?=base_url('Users/searchresultfilters')?>',
+              method: 'post',
+              data: {data: data},
+              dataType: 'json',
+              success: function(response){
+                if(response == 0 || response == '0' || response == null){
+                  $(".intro").remove();
+                  
+                  $("#resultsbyajaxresults").append(
+                    '<a href="" class="grid-item6 intro" style="text-align: left;"><h5 id="" style=" font-size: 1.25rem; text-transform: capitalize; font-weight: 500; color:#05386b;  padding-bottom: 5px;"> No Data Found! </h5><div class="discriptions" id="descriptionss" style="">The Selected Filtered Data Was Not In Our Database Please Try Something Else!</div></a>'
+                  );
+
+                }else{
+                  $(".intro").remove();
+
+                  $.each(response, function( index, value ) {
+                  var object = value;
+                  
+                  $("#resultsbyajaxresults").append(
+                    '<a href="<?= base_url("users/singlejob/")?>'+object.id +'" class="grid-item6 intro" style="text-align: left;"><h5 id="'+object.id +'" style=" font-size: 1.25rem; text-transform: capitalize; font-weight: 500; color:#05386b;  padding-bottom: 5px;">' + object.jobtitle + ' </h5><div class="text-right" style="text-transform: capitalize; display :block;  color:#05386b; font-weight: 400;">' + object[0] + '<span class="text-right" style="text-transform: capitalize; color:#05386b; float:right; font-weight: 400;">' + object.city + '</span></div><div class="discriptions" id="descriptionss" style="">' + object.discription + '</div><div class="text-right" style="text-transform: capitalize; display :block; color:grey; font-weight: 400; font-size: 1rem; padding-bottom: 10px;">' + object.posteddate + '<span class="text-right" style="text-transform: capitalize; float:right; font-weight: 400;"> Sal : ' + object.salary + ' : ' + object.currencytype + '</span></div></a>'
+                  );
+                });
+                }            
+              }
+            });
+    }
+    });
+    
+    $.ajax({
+              url:'<?=base_url('Users/searchresultfilterscompaniesnamesandids')?>',
+              method: 'post',
+              dataType: 'json',
+              success: function(response){
+
+                 $.each(response, function( index, value ) {
+                  var object = value;  
+                  $("#companyinresults").append('<option value="'+object.id+'">'+object.companyname+'</option>');
+
+                });
+  
+                         
+              }
+            });
 });
 
 
@@ -308,6 +581,7 @@ $('#cvupload').bind('change', function() {
   alert(this.files[0].size);
 
 });
+
 
 function fileValidation(){
     var fileInput = document.getElementById('cvupload');

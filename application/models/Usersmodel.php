@@ -167,6 +167,84 @@ public function dashboardjobseeker($jobseekeruserid)
 return $query1->result();
 	}
 
+	public function searchresultfilterscompaniesnamesandids()
+	{
+		$query1 = $this->db->select(['id','companyname'])
+			->from('employer')
+			->get('');
+			$response = $query1->result_array();
+			return $response;
+	}
+
+	public function searchresultfilters($postData)
+	{
+
+				
+			$array = array();
+
+			if($postData[0] != "0"){
+			$array['currencytype'] = $postData[0];
+			}
+
+			if($postData[3] != "0"){
+				$array['country'] = $postData[3];
+			}
+			if($postData[4] != "0"){
+				$array['city'] = $postData[4];
+			}
+			if($postData[5] != "0"){
+				$array['exp'] = $postData[5];
+			}
+			if($postData[6] != "0"){
+				$array['employerid'] = $postData[6];
+			}
+			if($postData[7] != "0"){
+				$array['qualification'] = $postData[7];
+			}
+			if($postData[8] != "0"){
+				$array['gender'] = $postData[8];
+			}
+			if($postData[9] != "0"){
+				$array['jobfield'] = $postData[9];
+			}
+
+			if($postData[2] != "0"){
+				$query1 = $this->db->select()
+				->where($array)
+				->where('salary >',$postData[1])
+				->like('jobtitle', $postData[2])
+				->from('post-job')
+				->get('');
+	
+				$result = $query1->result_array();
+			}else{
+				$query1 = $this->db->select()
+				->where($array)
+				->where('salary >',$postData[1])
+				->from('post-job')
+				->get('');
+	
+				$result = $query1->result_array();
+			}
+
+			$response = array() ;
+			if( count($result) ){
+		
+				foreach ($result as $result){
+					$employerid = $result['employerid'];
+					$query1 = $this->db->select('companyname')
+					->where('id', $employerid)
+					->from('employer')
+					->get();
+					$rowcount1 = $query1->row();
+					$rowcount  =$rowcount1->companyname;
+					array_push($result,$rowcount);
+					array_push($response,$result);
+				}
+			}
+			return $response;
+	}
+
 	public function jobsappliedsingle($postData)
 	{
 		$query1 = $this->db->select()
@@ -345,7 +423,7 @@ public function forgotpasswordsubmit($email)
 	{
 		
 		$query = $this->db
-		->select(['id','employerid','jobtitle','discription','city','posteddate'])
+		->select()
 		->from('post-job')
 		->order_by('posteddate', 'DESC')
 		->get();
@@ -356,7 +434,7 @@ public function forgotpasswordsubmit($email)
 	{
 		
 		$query = $this->db
-		->select(['id','employerid','jobtitle','discription','city','posteddate'])
+		->select()
 		->from('post-job')
 		->limit($limit,$offset)
 		->order_by('id', 'DESC')
@@ -514,16 +592,23 @@ $query1 = $this->db->select()
 		$searchtitle = $searchdata['searchtitle'];
 		$country = $searchdata['country'];
 		$city = $searchdata['city'];
-		$q = $this->db->from('post-job')
-		->select('*')
-					->like('jobtitle',$searchtitle)
-					->like('country',$country)
-					->like('city',$city)
-					->or_like('skills',$searchtitle)
-					->get();
-		$result = $q->result();
-	
-		if( count($result) ){
+		if($country == ""){
+			$q = $this->db->from('post-job')
+			->select('*')
+						->like('jobtitle',$searchtitle)
+						->get();
+			$result = $q->result();
+		}else{
+			$q = $this->db->from('post-job')
+			->select('*')
+						->like('jobtitle',$searchtitle)
+						->like('country',$country)
+						->like('city',$city)
+						->get();
+			$result = $q->result();
+		}
+		if($result != NULL){
+			if( count($result) ){
 			$overallres1 = array() ;
 			foreach ($result as $result){
 				$employerid = $result->employerid;
@@ -541,6 +626,51 @@ $query1 = $this->db->select()
 	    $overallres1 = $result ;
 		return $overallres1;
 		}
+		}else{
+			
+			if($country == ""){
+				$q = $this->db->from('post-job')
+				->select('*')
+							->like('skills',$searchtitle)
+							->get();
+				$result = $q->result();
+			}else{
+				$q = $this->db->from('post-job')
+				->select('*')
+							->like('skills',$searchtitle)
+							->like('country',$country)
+							->like('city',$city)
+							->get();
+				$result = $q->result();
+			}
+
+			if( count($result) ){
+				$overallres1 = array() ;
+				foreach ($result as $result){
+					$employerid = $result->employerid;
+					$query1 = $this->db->select('companyname')
+					->where('id', $employerid)
+					->from('employer')
+					->get();
+					$rowcount = $query1->row();
+					$overallres = array($rowcount,$result);
+					array_push($overallres1,$overallres);
+				}
+				return $overallres1;
+			}else{
+				
+			$overallres1 = $result ;
+			return $overallres1;
+			}
+
+
+		}
+
+
+	
+
+
+		
 	}
 	
 	public function searchmodel2($searchdata){
