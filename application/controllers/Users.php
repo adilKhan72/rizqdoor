@@ -1121,28 +1121,35 @@ public function uploadpicture(){
 	}
 	
 
-	public function searchingredirect($searchtitle,$country = "",$city = ""){
+	public function searchingredirect($searchtitle = "",$country = "",$city = ""){
 		
 		$searchdata['searchtitle'] = urldecode($searchtitle);
 		$searchdata['country'] = urldecode($country);
 		$searchdata['city'] = urldecode($city);		
 		
-		#loading model 
-					$this->load->model('usersmodel');
+		if($searchdata['searchtitle'] == ""){			
+			$this->session->set_flashdata('nodatamatch', 'Please Specify Atleast A Job Title To Look in Results');
+			#redirecting to another method in this controler.
+	return redirect('users/index');
+}else{
+				#loading model 
+				$this->load->model('usersmodel');
 
-                	#loading function from model and passign data to it 
-                	#at same time checking if the query runs output true or false.
-			if ($this->usersmodel->searchmodel($searchdata) != NULL) {
-				$joblist1 = $this->usersmodel->searchmodel($searchdata);
-				
-				$this->load->view('results',['joblist1' => $joblist1,'searchdata'=> $searchdata ]);
-                		
+				#loading function from model and passign data to it 
+				#at same time checking if the query runs output true or false.
+		if ($this->usersmodel->searchmodel($searchdata) != NULL) {
+			$joblist1 = $this->usersmodel->searchmodel($searchdata);
+			
+			$this->load->view('results',['joblist1' => $joblist1,'searchdata'=> $searchdata ]);
+					
 
-			} else {
-				$this->session->set_flashdata('nodatamatch', 'No Data Matched Your Criteria Please Try Something Else!');
-                		#redirecting to another method in this controler.
-				return redirect('users/index');
-			}
+		} else {
+			$this->session->set_flashdata('nodatamatch', 'No Data Matched Your Criteria Please Try Something Else!');
+					#redirecting to another method in this controler.
+			return redirect('users/index');
+		}
+	}
+
 		
 	}
 	public function search()
