@@ -82,6 +82,21 @@ echo form_error('passwordconfirm');
 echo form_submit('submit', 'Sign Up!');
  ?>
 
+<div class="g-recaptcha" data-sitekey="6Lf98qMUAAAAAKhjvopvHCvJQYvuQfMvhyeqsaY2"></div>
+<?php
+echo form_error('g-recaptcha-response');
+if($robotverifationfailed= $this->session->flashdata('robotverifationfailed'))
+       {
+        ?>
+        <p class="afterheading didnotmatchalert" id="nodatamatch" style="">
+          <?php
+            echo $robotverifationfailed;
+          ?>
+        </p>
+        <?php
+      }
+ ?>
+
 <label class="container">Show Password
         <input type="checkbox" onclick="showPassword()">
        <span class="checkmark"></span>      

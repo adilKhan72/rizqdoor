@@ -3,13 +3,12 @@
 <div class="jobcategorysinglejob"><!-- country category start-->
   <?php
    if($appliedalert = $this->session->flashdata('appliedalert')){
-                ?><div class="alert alert-success" style="margin-bottom: .3rem;">
-  <strong>Success!</strong>
-<?php
-                echo $appliedalert;
-                ?></div><?php
-             }
-              ?>
+      ?>
+      <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <?php echo $appliedalert; ?>
+</div>
+<?php  } ?>
 
 <?php
 if( $singlejob != null ){

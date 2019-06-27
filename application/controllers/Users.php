@@ -720,11 +720,11 @@ public function singlejobforresjobseker($jobid)
 
 		if($this->usersmodel->easyapplymodel($data) == NULL ){
 
-			$this->session->set_flashdata('appliedalert', 'error applying');
+			$this->session->set_flashdata('appliedalert', 'Error Applying');
 			$this->load->view('singlejobforresjobseker',['singlejob' => $singlejob,'loggeduserdetails' => $loggeduserdetails]);
 
 		}else{
-			$this->session->set_flashdata('appliedalert', 'applied success');
+			$this->session->set_flashdata('appliedalert', 'Applied Successfully');
 			$this->load->view('singlejobforresjobseker',['singlejob' => $singlejob,'loggeduserdetails' => $loggeduserdetails]);
 
 		}

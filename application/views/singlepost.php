@@ -3,7 +3,7 @@
 <div class="jobcategorysinglejob"><!-- country category start-->
 	
 <?php
-     if(count($result)){
+     if($result != null){
      ?>
 
 <div class="grid-containersingleblog" style="padding-top: 10px; box-sizing:border-box; ">

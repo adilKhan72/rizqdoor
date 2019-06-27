@@ -29,11 +29,16 @@ echo form_error('searchtitle');
         'required' => '',
         'pattern' => '^[a-zA-Z\s]+$',
 'title' => 'Only Alphabets allowed',
+'minlength' => '4',
         'placeholder'     => 'Search Job Title',
+        'list' => 'jobtitle',
+        'id' => 'titlesearch',
+        'autocomplete' => 'off'
 );
-
 echo form_input($data);
 ?>
+<datalist id="jobtitle">
+</datalist>
 <input type="hidden" id="custIdabc" name="custIdabc" value="Select Country">
 <input type="hidden" id="custIddef" name="custIddef" value="Select City">
 <?php
@@ -88,6 +93,7 @@ echo form_close();
 
     ?>
   </form>
+
 </div>
 
 </div><!-- slider ends-->

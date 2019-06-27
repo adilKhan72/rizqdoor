@@ -7,7 +7,9 @@
        {
         ?>
          <div class="resultpageform">
-         <input id="titlesearchinresult" type="text" name="searchtitle" value="<?= $searchdata['searchtitle'] ?>" required="" pattern="^[a-zA-Z\s]+$" title="Only Alphabets allowed" placeholder="Search Job Title">
+         <input id="titlesearchinresult" type="text" name="searchtitle" autocomplete="off" list="jobtitle" value="<?= $searchdata['searchtitle'] ?>" required="" pattern="^[a-zA-Z\s]+$" title="Only Alphabets allowed" placeholder="Search Job Title">
+         <datalist id="jobtitle">
+</datalist>
 <?php
 if($searchdata['country'] == ""){
 ?>

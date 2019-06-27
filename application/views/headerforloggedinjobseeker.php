@@ -17,6 +17,16 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134176839-1"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script>
+	//paste this code under head tag or in a seperate js file.
+	// Wait for window load
+	$(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -27,7 +37,7 @@
 
 </head>
 <body>
-  
+<div class="se-pre-con"></div>
   <div class="topnav" id="myTopnav"><!-- Top Navbar Start-->
    <a href="<?= base_url('users/logedjobseekerindex'); ?>" class="logo active" ><i id="logo" class="icon-LOGO"></i></a>
    <a class="postjoblinkmenu"  href="<?= base_url('users/changecv'); ?>" onmouseover="abc2()" onmouseout="cba()" >View/Change Resume </a>

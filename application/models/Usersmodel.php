@@ -207,7 +207,7 @@ return $query1->result();
 			if($postData[9] != "0"){
 				$array['jobfield'] = $postData[9];
 			}
-
+			if(strlen($postData[2]) > 3){
 			if($postData[2] != "0"){
 				$query1 = $this->db->select()
 				->where($array)
@@ -226,7 +226,6 @@ return $query1->result();
 	
 				$result = $query1->result_array();
 			}
-
 			$response = array() ;
 			if( count($result) ){
 		
@@ -242,6 +241,12 @@ return $query1->result();
 					array_push($response,$result);
 				}
 			}
+
+		}else{
+			$response = null;
+
+		}
+			
 			return $response;
 	}
 

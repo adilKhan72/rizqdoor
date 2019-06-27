@@ -1,3 +1,56 @@
+/* The alert message box */
+
+.alert {
+    padding: 20px;
+    background-color: #65f27d;
+    /* Red */
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+/* The close button */
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* When moving the mouse over the close button */
+
+.closebtn:hover {
+    color: black;
+}
+
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("../images/preloader_images/loader-128x/Preloader_2.gif") center no-repeat #fff;
+}
+
 label.error {
     color: red;
     background-color: bisque;
@@ -59,7 +112,6 @@ tr:nth-child(even) {
 
 .inputfile+label * {
     pointer-events: none;
-    */
     /* in case of FastClick lib use */
 }
 
@@ -428,12 +480,11 @@ div>p.rizqdoorslogan:hover {
     }
 }
 
-
-}
 .logosize:before,
 #logosize {
     color: white;
 }
+
 div>p.rizqdoorslogan2 {
     margin: 20px;
     padding: 0px;
@@ -443,18 +494,22 @@ div>p.rizqdoorslogan2 {
     color: white;
 }
 
+
 /***********************************************
 					FORM INDEX =	START
           ***********************************************/
+
 form.index-form {
     padding: 70px 0px 0px 0px;
     margin: auto;
     display: inline-block;
 }
+
 div.divform {
     display: block;
     text-align: center;
 }
+
 input[type=text],
 select,
 input[type=submit] {
@@ -467,12 +522,15 @@ input[type=submit] {
     color: grey;
     background-color: white;
 }
+
 input[type=text] {
     padding: 11px 60px;
 }
+
 select {
     padding: 11px 30px;
 }
+
 input[type=submit] {
     background-color: #05386b;
     color: white;
@@ -481,43 +539,53 @@ input[type=submit] {
     cursor: pointer;
     border-top: 1px solid rgba(222, 222, 222, 0.0);
 }
+
 input[type=submit]:hover {
     border-top: 1px solid white;
 }
+
 
 /***********************************************
 					FORM INDEX =	END
           ***********************************************/
 
+
 /***********************************************
 					MAIN  = START
           ***********************************************/
+
 .main-login {
     width: 1000px;
     background-color: white;
     margin: 20px auto;
 }
+
 div.main-div {
     display: grid;
     grid-template-columns: auto;
 }
+
 .afterheading {
     color: #379683;
     text-align: center;
     font-size: 1.2em;
 }
+
 .afterheading>a {
     text-decoration: none;
     font-weight: 500;
     color: #379683;
 }
+
 .afterheading>a:hover {
     color: #05386b;
 }
+
 div.main-login>div.formdiv {
     width: 50%;
     margin: auto;
 }
+
 div.main-login>div>form>input[type=text],
 div.main-login>div>form>input[type=password],
 div.main-login>div>form>input[type=email],
@@ -534,9 +602,11 @@ div.main-login>div>form>select {
     font-family: monospace;
     color: black;
 }
+
 div.main-login>div>form>select {
     margin-bottom: 25px;
 }
+
 div.main-login>div>form>input[type=submit] {
     width: 100%;
     background-color: #379683;
@@ -548,15 +618,19 @@ div.main-login>div>form>input[type=submit] {
     display: block;
     font-weight: 600;
 }
+
 div.main-login>div>form>input[type=submit]:hover {
     background-color: #418c6d;
 }
+
 div.txtform {
     display: inline;
 }
+
 div.main-login>div>form>div.social-login {
     width: 100%;
 }
+
 div.main-login>div>form>div.social-login>a {
     width: 100%;
     display: block;
@@ -568,19 +642,24 @@ div.main-login>div>form>div.social-login>a {
     color: white;
     margin-bottom: 18px;
 }
+
 div.main-login>div>form>div.social-login>a>i.customico-facebook {
     padding: 0px 10px;
 }
+
 div.main-login>div>form>div.social-login>a>i.customico-linkedin {
     padding: 0px 10px;
 }
+
 div.main-login>div>form>p.formendtxt {
     padding: 20px 0px;
     color: grey;
     font-size: small;
 }
 
+
 /* The container */
+
 .container {
     display: block;
     position: relative;
@@ -595,14 +674,18 @@ div.main-login>div>form>p.formendtxt {
     color: #379683;
 }
 
+
 /* Hide the browser's default checkbox */
+
 .container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
+
 /* Create a custom checkbox */
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -612,29 +695,39 @@ div.main-login>div>form>p.formendtxt {
     border: 1px solid #ccc;
 }
 
+
 /* On mouse-over, add a grey background color */
+
 .container:hover input~.checkmark {
     background-color: #edf5e1;
 }
 
+
 /* When the checkbox is checked, add a blue background */
+
 .container input:checked~.checkmark {
     background-color: #379683;
 }
 
+
 /* Create the checkmark/indicator (hidden when not checked) */
+
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
+
 /* Show the checkmark when checked */
+
 .container input:checked~.checkmark:after {
     display: block;
 }
 
+
 /* Style the checkmark/indicator */
+
 .container .checkmark:after {
     left: 7px;
     top: 3px;
@@ -646,21 +739,26 @@ div.main-login>div>form>p.formendtxt {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
 div.main-login>div>form>label>.frgtpass>a {
     color: #05386b;
     float: right;
     text-decoration: none;
     font-weight: 500;
 }
+
 div.main-login>div>form>label>.frgtpass>a:hover {
     color: #0d2c55;
 }
+
 div.jobcategory {
     background-color: #edf5e1;
 }
+
 div.jobcategorysinglejob {
     background-color: #edf5e1;
 }
+
 .country {
     padding: 50px;
     text-align: center;
@@ -669,6 +767,7 @@ div.jobcategorysinglejob {
     font-weight: bolder;
     line-height: 1.2;
 }
+
 .countrysinglejob {
     padding: 50px;
     text-align: center;
@@ -677,6 +776,7 @@ div.jobcategorysinglejob {
     font-weight: bolder;
     line-height: 1.2;
 }
+
 .item6-left {
     transition: background-color .3s;
     background-color: white;
@@ -688,6 +788,7 @@ div.jobcategorysinglejob {
     grid-row: 1 / last-line;
     grid-row-start: span 9000;
 }
+
 .grid-container6 {
     display: grid;
     justify-content: space-between;
@@ -698,6 +799,7 @@ div.jobcategorysinglejob {
     grid-column-gap: 2px;
     grid-template-rows: auto [last-line];
 }
+
 .grid-item6 {
     transition: background-color .3s;
     background-color: white;
@@ -708,6 +810,7 @@ div.jobcategorysinglejob {
     margin-bottom: 25px;
     cursor: pointer;
 }
+
 .grid-container5 {
     display: grid;
     justify-content: space-between;
@@ -717,6 +820,7 @@ div.jobcategorysinglejob {
     width: 90%;
     grid-column-gap: 2px;
 }
+
 .grid-item5 {
     display: grid;
     transition: background-color .3s;
@@ -728,6 +832,7 @@ div.jobcategorysinglejob {
     margin-bottom: 25px;
     cursor: pointer;
 }
+
 .grid-containersinglejob {
     display: grid;
     justify-content: space-between;
@@ -737,6 +842,7 @@ div.jobcategorysinglejob {
     width: 90%;
     grid-column-gap: 0px;
 }
+
 .grid-containersingleblog {
     display: grid;
     justify-content: space-between;
@@ -746,6 +852,7 @@ div.jobcategorysinglejob {
     width: 90%;
     grid-column-gap: 0px;
 }
+
 .grid-itemsingleblog {
     transition: background-color .3s;
     background-color: white;
@@ -755,6 +862,7 @@ div.jobcategorysinglejob {
     line-height: 1.2;
     margin-bottom: 25px;
 }
+
 .grid-itemsinglejob {
     transition: background-color .3s;
     background-color: white;
@@ -764,14 +872,17 @@ div.jobcategorysinglejob {
     line-height: 1.2;
     margin-bottom: 25px;
 }
+
 .grid-item5:hover {
     background-color: #ddd;
 }
+
 .grid-item5:active,
 .grid-item5:focus,
 .grid-item5:visited {
     color: #05386b;
 }
+
 .grid-container1 {
     display: grid;
     grid-template-columns: 23% 23% 23% 23%;
@@ -780,6 +891,7 @@ div.jobcategorysinglejob {
     width: 1000px;
     margin: auto;
 }
+
 .grid-item1 {
     background-color: white;
     padding: 20px;
@@ -787,9 +899,11 @@ div.jobcategorysinglejob {
     height: 160px;
     margin-bottom: 25px;
 }
+
 .grid-item1:hover {
     background-color: #ECFFED;
 }
+
 .grid-container2 {
     display: grid;
     grid-template-columns: 23% 23% 23% 23%;
@@ -799,49 +913,53 @@ div.jobcategorysinglejob {
     margin: auto;
     padding-bottom: 40px;
 }
+
 .grid-item2 {
     height: 90px;
     margin-bottom: 25px;
 }
+
 div.hiring {
     background-color: white;
 }
+
 .item2-1 {
     background-image: url("../images/1.jpg");
     /* logo dimention 230 by 90 pixel exactly for all*/
-    
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
+
 .item2-2 {
     background-image: url("../images/2.jpg");
     /* logo dimention 230 by 90 pixel exactly for all*/
-    
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
+
 .item2-3 {
     background-image: url("../images/3.jpg");
     /* logo dimention 230 by 90 pixel exactly for all*/
-    
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
+
 .item2-4 {
     background-image: url("../images/4.jpg");
     /* logo dimention 230 by 90 pixel exactly for all*/
-    
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
+
 .footer {
     background-color: #05386b;
     color: #edf5e1;
 }
+
 .grid-container4 {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
@@ -851,42 +969,51 @@ div.hiring {
     padding: 40px 0px 0px 0px;
     margin: auto;
 }
+
 .grid-item4 {
     border-bottom: 1px solid white;
-    border-bottom-right-radius:
 }
+
 .item4-1 {
     grid-column-start: 1;
     grid-column-end: 3;
     padding-right: 20%;
 }
+
 div>div>div.grid-item4>p.head {
     font-weight: 400;
     font-size: 1.3em;
     padding-bottom: 10px;
 }
+
 .item4-2 {}
+
 .item4-3 {}
+
 .numbers {
     font-size: 2.4em;
     color: #05386b;
     font-weight: 300;
 }
+
 .arefjob {
     text-decoration: unset;
     color: #379683;
     margin-top: 40px;
     display: block;
 }
+
 .arefjob:hover {
     color: #05386b;
 }
+
 div>div>div>div>p.follow {
     display: inline-block;
     font-size: 1.3em;
     padding: 5px 0px;
     margin: 0px;
 }
+
 div>div>div>div.about>a,
 div>div>div.item4-2>a,
 div>div>div.item4-3>a {
@@ -894,36 +1021,35 @@ div>div>div.item4-3>a {
     color: #edf5e1;
     text-decoration: none;
 }
+
 div>div>div.item4-2>a,
 div>div>div.item4-3>a {
     display: block;
 }
+
 div>div>div>div>a:hover,
 div>div>div.item4-2>a:hover,
 div>div>div.item4-3>a:hover {
     color: #379683;
 }
+
 @media screen and (max-width: 1030px) {
     .main-login {
         width: 100%;
         background-color: white;
     }
-    
     .item4-1 {
         padding-right: 5%;
     }
-    
     .grid-container1 {
         grid-template-columns: 100%;
         width: 90%;
     }
-    
     .grid-item1 {
         background-color: white;
         padding: 20px;
         height: 70px;
     }
-    
     .numbers {
         font-size: 2.4em;
         color: #05386b;
@@ -932,45 +1058,36 @@ div>div>div.item4-3>a:hover {
         display: block;
         padding-top: 10px;
     }
-    
     .numbers:after {
         clear: both;
     }
-    
     .arefjob {
         text-decoration: none;
         color: #379683;
         display: block;
         margin-top: 20px;
     }
-    
     .arefjob:after {
         clear: both;
     }
-    
     .freespace-for-Ad {
         width: 90%;
     }
-    
     .grid-container2 {
         width: 90%;
     }
-    
     .grid-item2 {}
-    
     .grid-container5 {
         display: grid;
         grid-template-columns: 100%;
         width: 90%;
     }
-    
     .grid-item5 {
         background-color: white;
         padding: 20px;
         text-align: center;
         margin-bottom: 25px;
     }
-    
     .grid-container6 {
         display: grid;
         justify-content: space-between;
@@ -981,7 +1098,6 @@ div>div>div.item4-3>a:hover {
         grid-column-gap: 2px;
         grid-template-rows: auto;
     }
-    
     .grid-item6 {
         background-color: white;
         padding: 20px;
@@ -989,6 +1105,7 @@ div>div>div.item4-3>a:hover {
         margin-bottom: 25px;
     }
 }
+
 div.linkmorejobs>a {
     color: #777578;
     text-decoration: none;
@@ -998,15 +1115,18 @@ div.linkmorejobs>a {
     font-weight: 600;
     font-size: 1em;
 }
+
 div.linkmorejobs {
     text-align: center;
     padding: 40px 0px;
     margin-bottom: 25px;
 }
+
 div.linkmorejobs>a:hover {
     color: #05386b;
     border-color: #05386b;
 }
+
 div.freespace-for-Ad {
     background-color: white;
     height: 150px;
@@ -1014,9 +1134,11 @@ div.freespace-for-Ad {
     margin: auto;
     margin-bottom: 50px;
 }
+
 .grid-containerabout {
     padding: 30px 20%;
 }
+
 .filterheadingclass {
     text-align: left;
     padding-bottom: 5px;
@@ -1024,12 +1146,14 @@ div.freespace-for-Ad {
     font-size: 1.1em;
     color: #05386b;
 }
+
 .filtersdiv {
     border-bottom: #c4c5c3 1px solid;
     padding: 15px 0px;
     box-sizing: border-box;
     width: 100%;
 }
+
 @media screen and (max-width: 840px) {
     .item6-left {
         transition: background-color .3s;
@@ -1042,7 +1166,6 @@ div.freespace-for-Ad {
         grid-row: auto;
         grid-row-start: auto;
     }
-    
     .grid-container6 {
         display: grid;
         justify-content: space-between;
@@ -1052,28 +1175,23 @@ div.freespace-for-Ad {
         width: 90%;
         grid-column-gap: 2px;
     }
-    
     .grid-containerabout {
         padding: 30px 0%;
     }
-    
     .grid-containersinglejob {
         display: grid;
         grid-template-columns: 100%;
         width: 90%;
     }
-    
     .grid-itemsinglejob {
         background-color: white;
         padding: 20px;
         text-align: center;
         margin-bottom: 0px;
     }
-    
     .gridsingmarbot {
         margin-bottom: 30px;
     }
-    
     .grid-container4 {
         display: grid;
         grid-template-columns: 100%;
@@ -1083,31 +1201,25 @@ div.freespace-for-Ad {
         padding: 40px 0px 0px 0px;
         margin: auto;
     }
-    
     .grid-item4 {
         border-bottom: 0px solid white;
         padding: 15px 0px;
     }
-    
     .item4-1 {
         grid-column-start: 1;
         grid-column-end: 2;
         padding: 0px 0px;
     }
-    
     .item4-3 {
         border-bottom: 1px solid white;
     }
-    
     input[type=submit] {
         background-color: #379683;
     }
-    
     form.index-form {
         padding: 10px 0px 0px 0px;
         display: inline-block;
     }
-    
     input[type=text],
     select,
     input[type=submit] {
@@ -1115,6 +1227,7 @@ div.freespace-for-Ad {
         width: 40%;
     }
 }
+
 .didnotmatchalert {
     color: white;
     font-weight: 500;
@@ -1124,6 +1237,7 @@ div.freespace-for-Ad {
     margin: 10px auto;
     padding: 5px;
 }
+
 @media screen and (max-width: 690px) {
     input[type=text],
     select,
@@ -1131,27 +1245,29 @@ div.freespace-for-Ad {
         margin-top: 3px;
         width: 80%;
     }
-    
     .didnotmatchalert {
         width: 78%;
     }
-    
     div.main-login>div.formdiv {
         width: 95%;
     }
 }
+
 div.main-login>div>form>.formerror {
     color: #C21E0F;
     font-size: 1em;
     font-family: monospace;
     text-align: center;
 }
+
 .center {
     text-align: center;
 }
+
 .pagination {
     display: inline-block;
 }
+
 .pagination div {
     color: black;
     float: left;
@@ -1160,31 +1276,36 @@ div.main-login>div>form>.formerror {
     border: 1px solid #ddd;
     margin: 10px 4px;
 }
+
 .pagination>div>a {
     text-decoration: none;
     display: inline-block;
     padding: 8px 16px;
 }
+
 .pagination div.active {
     background-color: #05386b;
     color: white;
     border: 1px solid #4CAF50;
 }
+
 .pagination div:hover:not(.active) {
     background-color: #ddd;
 }
 
+
 /***********************************************
 					MAIN  = END
           ***********************************************/
+
 div.jobcategory {
     background-color: #edf5e1;
 }
+
 .sinjobbutton {
     padding: 10px 24px;
     background-color: #4CAF50;
     /* Green */
-    
     border: none;
     color: white;
     text-align: center;
@@ -1194,6 +1315,7 @@ div.jobcategory {
     margin: 4px 2px;
     cursor: pointer;
 }
+
 .custom-range {
     width: 100%;
     padding-left: 0;
@@ -1202,21 +1324,27 @@ div.jobcategory {
     -moz-appearance: none;
     appearance: none
 }
+
 .custom-range:focus {
     outline: 0
 }
+
 .custom-range:focus::-webkit-slider-thumb {
     box-shadow: 0 0 0 1px #fff, 0 0 0 .2rem rgba(0, 123, 255, .25)
 }
+
 .custom-range:focus::-moz-range-thumb {
     box-shadow: 0 0 0 1px #fff, 0 0 0 .2rem rgba(0, 123, 255, .25)
 }
+
 .custom-range:focus::-ms-thumb {
     box-shadow: 0 0 0 1px #fff, 0 0 0 .2rem rgba(0, 123, 255, .25)
 }
+
 .custom-range::-moz-focus-outer {
     border: 0
 }
+
 .custom-range::-webkit-slider-thumb {
     width: 1rem;
     height: 1rem;
@@ -1228,14 +1356,17 @@ div.jobcategory {
     -webkit-appearance: none;
     appearance: none
 }
+
 @media screen and (prefers-reduced-motion:reduce) {
     .custom-range::-webkit-slider-thumb {
         transition: none
     }
 }
+
 .custom-range::-webkit-slider-thumb:active {
     background-color: #b3d7ff
 }
+
 .custom-range::-webkit-slider-runnable-track {
     width: 100%;
     height: .5rem;
@@ -1245,6 +1376,7 @@ div.jobcategory {
     border-color: transparent;
     border-radius: 1rem
 }
+
 .custom-range::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
@@ -1255,14 +1387,17 @@ div.jobcategory {
     -moz-appearance: none;
     appearance: none
 }
+
 @media screen and (prefers-reduced-motion:reduce) {
     .custom-range::-moz-range-thumb {
         transition: none
     }
 }
+
 .custom-range::-moz-range-thumb:active {
     background-color: #b3d7ff
 }
+
 .custom-range::-moz-range-track {
     width: 100%;
     height: .5rem;
@@ -1272,6 +1407,7 @@ div.jobcategory {
     border-color: transparent;
     border-radius: 1rem
 }
+
 .custom-range::-ms-thumb {
     width: 1rem;
     height: 1rem;
@@ -1284,14 +1420,17 @@ div.jobcategory {
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     appearance: none
 }
+
 @media screen and (prefers-reduced-motion:reduce) {
     .custom-range::-ms-thumb {
         transition: none
     }
 }
+
 .custom-range::-ms-thumb:active {
     background-color: #b3d7ff
 }
+
 .custom-range::-ms-track {
     width: 100%;
     height: .5rem;
@@ -1301,15 +1440,18 @@ div.jobcategory {
     border-color: transparent;
     border-width: .5rem
 }
+
 .custom-range::-ms-fill-lower {
     background-color: #dee2e6;
     border-radius: 1rem
 }
+
 .custom-range::-ms-fill-upper {
     margin-right: 15px;
     background-color: #b9bdc0;
     border-radius: 1rem
 }
+
 .custom-select {
     display: inline-block;
     width: 100%;
@@ -1326,40 +1468,48 @@ div.jobcategory {
     -moz-appearance: none;
     appearance: none
 }
+
 .custom-select:focus {
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(128, 189, 255, .5)
 }
+
 .custom-select:focus::-ms-value {
     color: #495057;
     background-color: #fff
 }
+
 .custom-select[multiple],
 .custom-select[size]:not([size="1"]) {
     height: auto;
     padding-right: .75rem;
     background-image: none
 }
+
 .custom-select:disabled {
     color: #6c757d;
     background-color: #e9ecef
 }
+
 .custom-select::-ms-expand {
     opacity: 0
 }
+
 .custom-select-sm {
     height: calc(1.8125rem + 2px);
     padding-top: .375rem;
     padding-bottom: .375rem;
     font-size: 75%
 }
+
 .custom-select-lg {
     height: calc(2.875rem + 2px);
     padding-top: .375rem;
     padding-bottom: .375rem;
     font-size: 125%
 }
+
 .custom-file {
     position: relative;
     display: inline-block;
@@ -1367,9 +1517,11 @@ div.jobcategory {
     height: calc(2.25rem + 2px);
     margin-bottom: 0
 }
+
 .custom-select {
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
+
 @media screen and (prefers-reduced-motion:reduce) {
     .custom-control-label::before,
     .custom-file-label,

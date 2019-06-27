@@ -48,6 +48,19 @@
 <script language="javascript">
 
 $(document).ready(function(){
+  
+  $('.numbers').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 2000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+
 //adding a custom method
 $.validator.addMethod('descriptionchecking', function(value, element) { 
   return value.length != "";
@@ -357,6 +370,74 @@ $('#expinresults,#companyinresults,#qualificationinresults,#genderinresultes,#jo
               });
       
       });
+  
+
+
+
+
+
+
+
+
+
+
+
+      $('#titlesearch').on('keyup',function(){
+
+  
+          var jobtitle = $('#titlesearch').val();
+          var salarytyperesults = "0";
+          var salarylimit = "0";
+          var qualification = "0";
+          var country = "0";
+          var city = "0";
+          var exp = "0";
+          var company = "0";
+          var gender = "0";
+          var jobfield = "0";
+          var data = [salarytyperesults,
+                      salarylimit,
+                      jobtitle,
+                      country,
+                      city,
+                      exp,
+                      company,
+                      qualification,
+                      gender,
+                      jobfield];
+                $.ajax({
+                url:'<?=base_url('Users/searchresultfilters')?>',
+                method: 'post',
+                data: {data: data},
+                dataType: 'json',
+                success: function(response){
+
+
+                    $(".jobtitleautocomplete").remove();
+                    $.each(response, function( index, value ) {
+                    var object = value;
+
+                    $("#jobtitle").append('<option class="jobtitleautocomplete" value="'+object.jobtitle+'"><li>');
+
+                  });
+                        
+                }
+              });
+      
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
       $('#titlesearchinresult').on('keyup',function(){
         
         var salarytyperesults = $("#salarytyperesults option:selected").val();
@@ -425,10 +506,13 @@ $('#expinresults,#companyinresults,#qualificationinresults,#genderinresultes,#jo
   
                   }else{
                     $(".intro").remove();
-  
+
+                    $(".jobtitleautocomplete").remove();
                     $.each(response, function( index, value ) {
                     var object = value;
-                    
+
+                    $("#jobtitle").append('<option class="jobtitleautocomplete" value="'+object.jobtitle+'"><li>');
+
                     $("#resultsbyajaxresults").append(
                       '<a href="<?=base_url("users/singlejob/")?>'+object.id +'" class="grid-item6 intro" style="text-align: left;"><h5 id="'+object.id +'" style=" font-size: 1.25rem; text-transform: capitalize; font-weight: 500; color:#05386b;  padding-bottom: 5px;">' + object.jobtitle + ' </h5><div class="text-right" style="text-transform: capitalize; display :block;  color:#05386b; font-weight: 400;">' + object[0] + '<span class="text-right" style="text-transform: capitalize; color:#05386b; float:right; font-weight: 400;">' + object.city + '</span></div><div class="discriptions" id="descriptionss" style="">' + object.discription + '</div><div class="text-right" style="text-transform: capitalize; display :block; color:grey; font-weight: 400; font-size: 1rem; padding-bottom: 10px;">' + object.posteddate + '<span class="text-right" style="text-transform: capitalize; float:right; font-weight: 400;"> Sal : ' + object.salary + ' : ' + object.currencytype + '</span></div></a>'
                     );

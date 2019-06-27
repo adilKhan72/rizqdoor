@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,11 @@
 .rizqdoorsloganresultpage{
   text-align: center;
 }
+
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+
 </style>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -31,10 +36,23 @@
 
   gtag('config', 'UA-134176839-1');
 </script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
+
 <body>
-  
+
+<div class="se-pre-con"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script>
+	//paste this code under head tag or in a seperate js file.
+	// Wait for window load
+	$(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+</script>
   <div class="topnav" id="myTopnav"><!-- Top Navbar Start-->
    <a href="<?= base_url(''); ?>" class="logo active" ><i id="logo" class="icon-LOGO"></i></a>
    <a class="postjoblinkmenu" href="<?= base_url('employer/postjob'); ?>" onmouseover="abc2()" onmouseout="cba()" >Post a Job/Employer </a>
